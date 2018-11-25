@@ -2,6 +2,7 @@
 ## Author
 * Ruchella Kock (rushkock on github) :octocat:
 
+## Summary
 This website will make a heat map, bar chart and zoomable sunburst diagram in order to help visualize the prevalence of mental disorders for non-academics(as well as academics).
 
 ## Problem statement
