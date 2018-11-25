@@ -11,19 +11,29 @@ I will show the prevalence in the united states of mental disorders, serious men
 
 ## Main features
 
-<!-- <img align="left" src="doc/visualisation.png"> -->
+### Home page
 
-![Visualisation](doc/visualisation.jpg)
+### Visualization page
+![Visualization](doc/visualization.jpg)
 
-- Heat map with tooltip and when hovering information in separate box
+- Heat map with tooltip and when hovering information on screan in separate box
 
-![Heatmap](doc/heat map.png)
+![Heatmap](doc/heatmap.jpg)
 
-![Heatmap US](doc/heatmap US.png)
+[source](https://www.theguardian.com/environment/interactive/2013/may/14/alaska-villages-frontline-global-warming )
 
-- Bar chart with enlargement effect
+![Heatmap US](doc/heatmapUS.jpg)
+
+[source](https://vida.io/gists/vfP7KiHLfDbnDWBsX)
+- Bar chart
+[source](https://publicadministration.un.org/egovkb/en-us/Data/Compare-Countries)
+![Barchart](doc/barchart.jpg)
 - Zoomable sunburst diagram with enlargement effect
-- ----
+![Zoomable sunburst diagrams](doc/sunbursts.jpg)
+[source](https://beta.observablehq.com/@mbostock/d3-zoomable-sunburst)
+- Confidence Interval bar chart
+![CI bar chart](barchartCI.jpg)
+[source](https://beta.observablehq.com/@mbostock/u-s-population-by-age-and-sex/3)
 - Dropdown sort by state
 In this dropdown all the states will be available. Once a state is chosen these are highlighted perhaps with both the use of colour and or enlargements. The data for the other states will be in the background.
 - Dropdown sort by type of disorder
