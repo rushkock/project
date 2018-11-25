@@ -70,3 +70,8 @@ It is similar in terms of it also visualizes mental health. However, it is not i
 
 ### Challenges
 Using data from 4 different datasets could be challenging. In technical terms I believe the zoomable sunburst diagram will be the hardest to implement. It is something I have not done before. It may also be hard to make it a clear and functional visualization. Rather, instead of making the data clearer for everyone if not implemented properly it may make it more confusing.
+
+
+## References
+- Anderson, R. J., Freedland, K. E., Clouse, R. E., & Lustman, P. J. (2001). The prevalence of comorbid depression in adults with diabetes: a meta-analysis. Diabetes care, 24(6), 1069-1078.
+- Nock, M. K., Borges, G., Bromet, E. J., Alonso, J., Angermeyer, M., Beautrais, A., . . . Williams, D. (2008). Cross-national prevalence and risk factors for suicidal ideation, plans and attempts. The British Journal of Psychiatry , Ron, 192(2), 98-105.
