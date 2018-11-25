@@ -9,30 +9,27 @@ There is a lot of data and information about different mental health diseases. T
 ## Solution
 I will show the prevalence in the united states of mental disorders, serious mental disorders, depression and suicidal thoughts in 4 different graphs in order to relay information in different, clear and fast ways to the audience.
 
-## Main features
-
 ### Home page
+The home page provides information about the problem, the data set and perhaps additional information of what the website can be used for and how it can be used.
 
 ### Visualization page
+This is what the visualization tab will approximately look like
 ![Visualization](doc/visualization.jpg)
 
+## Main features
 - Heat map with tooltip and when hovering information on screan in separate box
-
 ![Heatmap](doc/heatmap.jpg)
-
 [source](https://www.theguardian.com/environment/interactive/2013/may/14/alaska-villages-frontline-global-warming )
-
 ![Heatmap US](doc/heatmapUS.jpg)
-
 [source](https://vida.io/gists/vfP7KiHLfDbnDWBsX)
 - Bar chart
-[source](https://publicadministration.un.org/egovkb/en-us/Data/Compare-Countries)
 ![Barchart](doc/barchart.jpg)
+[source](https://publicadministration.un.org/egovkb/en-us/Data/Compare-Countries)
 - Zoomable sunburst diagram with enlargement effect
 ![Zoomable sunburst diagrams](doc/sunbursts.jpg)
 [source](https://beta.observablehq.com/@mbostock/d3-zoomable-sunburst)
 - Confidence Interval bar chart
-![CI bar chart](barchartCI.jpg)
+![CI bar chart](doc/barchartCI.jpg)
 [source](https://beta.observablehq.com/@mbostock/u-s-population-by-age-and-sex/3)
 - Dropdown sort by state
 In this dropdown all the states will be available. Once a state is chosen these are highlighted perhaps with both the use of colour and or enlargements. The data for the other states will be in the background.
@@ -49,7 +46,7 @@ This will provide the possibility to change between the datasets. Essentially pr
 -	Tooltip with extra information
 
 ## Optional to implement.
-- ----
+- Confidence interval bar chart
 - Perhaps working with all 4 datasets may be optional I may just choose 2 to start
 - Enlargement while hovering
 - Dropdown sort by state
