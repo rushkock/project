@@ -11,6 +11,7 @@ I will show the prevalence in the united states of mental disorders, serious men
 Main features
 
 <img align="right" src="doc/visualisation.png">
+
 - Heat map with tooltip and when hovering information in separate box (See heatmap)
 - Bar chart with enlargement effect
 - Zoomable sunburst diagram with enlargement effect
@@ -37,8 +38,11 @@ Describe the things that you’ll have to get in order.
 List the data sources that you will use and whether you will need to transform the data before it is usable for your application. The list should include links to where the data sources can be downloaded or accessed.
 ### Data sources
 [Thoughts of suicide](https://data.world/samhsa/serious-thoughts-of-suicide)
+
 [Major depressive episode](https://data.world/samhsa/major-depressive-episode)
+
 [Serious mental illness](https://data.world/samhsa/serious-mental-illness)
+
 [Any mental illness](https://data.world/samhsa/any-mental-illness)
 
 ### External components
