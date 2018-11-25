@@ -1,6 +1,6 @@
 # Mental disorders in united state for ages 18 and up
-Ruchella Kock
-12460796
+## Ruchella Kock
+## 12460796
 This website will make a heat map, bar chart and zoomable sunburst diagram in order to help visualize the prevalence of mental disorders for non-academics(as well as academics).
 
 ## Problem statement
@@ -17,7 +17,7 @@ This is what the visualization tab will approximately look like
 ![Visualization](doc/visualization.jpg)
 
 ## Main features
-- Heat map with tooltip and when hovering information on screan in separate box
+- Heat map with tooltip and when hovering information on screen updates in separate box (Seen on the left side underneath in picture)
 ![Heatmap](doc/heatmap.jpg)
 [source](https://www.theguardian.com/environment/interactive/2013/may/14/alaska-villages-frontline-global-warming )
 ![Heatmap US](doc/heatmapUS.jpg)
@@ -64,7 +64,8 @@ This will provide the possibility to change between the datasets. Essentially pr
 Note: no transformations necessary
 
 ### External components
-List the external components (libraries like d3-tip or SQLite) that you need to implement certain features. Include the names, and if the component is not standard, include a link to its website.
+d3 version (5.7.0)
+flare visualization toolkit
 
 ### Previous implementation
 My website I find to be most similar to this website [CSRIB](https://dboekhout.github.io/CSRIB/).
