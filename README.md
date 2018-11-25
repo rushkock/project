@@ -3,10 +3,10 @@
 Ruchella Kock (rushkock on github) :octocat:
 
 ## Summary
-This website will make a heat map, bar chart and zoomable sunburst diagram in order to help visualize the prevalence of mental disorders for non-academics(as well as academics).
+This website will make a heat map, bar chart and zoomable sunburst diagram in order to help visualize the prevalence of mental disorders for non-academics.
 
 ## Problem statement
-There is a lot of data and information about different mental health diseases. There are many papers describing prevalence rates of mental disorders (e.g. Anderson, Freedland, Clouse, & Lustman, 2001; Nock, et al., 2008). However, based on my experience these papers use tables instead of visualizations to show the data. Moreover, if visualizations are used it is complicated and academic as in the case with the paper by Nock and colleagues (2008). This website aims to provide clear visualizations for academics and non-academics alike who are interested in prevalence rates of mental disorders in the united states.
+There is a lot of data and information about different mental health diseases. There are many papers describing prevalence rates of mental disorders (e.g. Anderson, Freedland, Clouse, & Lustman, 2001; Nock, et al., 2008). However, based on my experience these papers use tables instead of visualizations to show the data. Moreover, if visualizations are used it is complicated and academic as in the case with the paper by Nock and colleagues (2008). This website aims to provide clear visualizations for academics who are interested in prevalence rates of mental disorders in the united states.
 
 ## Solution
 I will show the prevalence in the united states of mental disorders, serious mental disorders, depression and suicidal thoughts in 4 different graphs in order to relay information in different, clear and fast ways to the audience.
