@@ -17,9 +17,9 @@ I will show the prevalence in the united states of mental disorders, serious men
 
 - Heat map with tooltip and when hovering information in separate box
 
-[![Heatmap](doc/heat map.png)]
+![Heatmap](doc/heat map.png)
 
-[[!Heatmap US](doc/heatmap US.png)]
+![Heatmap US](doc/heatmap US.png)
 
 - Bar chart with enlargement effect
 - Zoomable sunburst diagram with enlargement effect
