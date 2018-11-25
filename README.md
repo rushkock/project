@@ -1,6 +1,7 @@
 # Mental disorders in united state for ages 18 and up
-## Ruchella Kock
-## 12460796
+## Author
+* Ruchella Kock (rushkock on github) :octocat:
+
 This website will make a heat map, bar chart and zoomable sunburst diagram in order to help visualize the prevalence of mental disorders for non-academics(as well as academics).
 
 ## Problem statement
