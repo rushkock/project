@@ -9,6 +9,7 @@ There is a lot of data and information about different mental health diseases. T
 ## Solution
 I will show the prevalence in the united states of mental disorders, serious mental disorders, depression and suicidal thoughts in 4 different graphs in order to relay information in different, clear and fast ways to the audience.
 Main features
+![Visualizations](visualisation.png)
 - Heat map with tooltip and when hovering information in separate box (See heatmap)
 - Bar chart with enlargement effect
 - Zoomable sunburst diagram with enlargement effect
@@ -32,7 +33,7 @@ Main features
 
 ## Prerequisites
 Describe the things that you’ll have to get in order.
-•	List the data sources that you will use and whether you will need to transform the data before it is usable for your application. The list should include links to where the data sources can be downloaded or accessed.
+List the data sources that you will use and whether you will need to transform the data before it is usable for your application. The list should include links to where the data sources can be downloaded or accessed.
 ### Data sources
 [Thoughts of suicide] (https://data.world/samhsa/serious-thoughts-of-suicide)
 [Major depressive episode (https://data.world/samhsa/major-depressive-episode)
@@ -48,7 +49,7 @@ Include a review of similar mobile apps or related visualizations, in terms of f
 My website I find to be most similar to this website. The use of 4 visualizations. Including a heat map and 2 bar charts. This website also allows the possibility to sort by country (which would be sort by state in my case)
 
 ### Challenges
-•	Identify the hardest parts of implementing your application: think of technical problems or limitations that could arise during development and what possibilities you have to overcome these.
+Identify the hardest parts of implementing your application: think of technical problems or limitations that could arise during development and what possibilities you have to overcome these.
 Combining the data and I think the zoomable sunburst diagram.
 
 Note explain more what happens during the sort by state (and or type)
