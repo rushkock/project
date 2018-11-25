@@ -10,8 +10,8 @@ There is a lot of data and information about different mental health diseases. T
 I will show the prevalence in the united states of mental disorders, serious mental disorders, depression and suicidal thoughts in 4 different graphs in order to relay information in different, clear and fast ways to the audience.
 Main features
 
-<img align="right" src="doc/visualisation.png">
-
+<img align="left" src="doc/visualisation.png">
+![visualisation](doc/visualisation.png)
 - Heat map with tooltip and when hovering information in separate box (See heatmap)
 - Bar chart with enlargement effect
 - Zoomable sunburst diagram with enlargement effect
