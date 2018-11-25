@@ -11,9 +11,9 @@ I will show the prevalence in the united states of mental disorders, serious men
 
 ## Main features
 
-<img align="left" src="doc/visualisation.png">
+<!-- <img align="left" src="doc/visualisation.png"> -->
 
-![Visualisation](doc/visualisation.png)
+![Visualisation](doc/visualisation.jpg)
 
 - Heat map with tooltip and when hovering information in separate box
 
