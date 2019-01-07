@@ -60,9 +60,10 @@ The user can move the slider and see how the data changes per year
 Transformations: remove outliers and remove countries with no data
 
 ### External components
-d3 version (5.7.0)
-d3 tooltip
-flare visualization toolkit
+- d3 version (5.7.0)
+- d3 tooltip
+- bootstrap
+- flare visualization toolkit
 
 ### Previous implementation
 My website I find to be most similar to this website [CSRIB](https://dboekhout.github.io/CSRIB/).
