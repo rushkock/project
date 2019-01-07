@@ -1,4 +1,4 @@
-# Mental disorders in united state for ages 18 and up
+# Suicide rate per country
 ## Author
 Ruchella Kock (rushkock on github) :octocat:
 
