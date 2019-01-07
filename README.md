@@ -9,7 +9,7 @@ This website will make a heat map, bar chart and zoomable sunburst diagram in or
 There is a lot of data and information about different mental health diseases. There are many papers describing prevalence rates of mental disorders (e.g. Anderson, Freedland, Clouse, & Lustman, 2001; Nock, et al., 2008). However, based on my experience these papers use tables instead of visualizations to show the data. Moreover, if visualizations are used it is complicated and academic as in the case with the paper by Nock and colleagues (2008). This website aims to provide clear visualizations for non academics who are interested in prevalence rates of suicide over the whole world.
 
 ## Solution
-I will show the prevalence of suicide with data from the whole world. Although suicide is not classified as a mental disorder, it is a symptom of mental disorder and thus still can show a lot about the topic.
+I will provide clear visualizations (Namely a bar chart, heatmap and zoomable sunburst) for the prevalence of suicide with data from the whole world. It will have interactive components which can make the data clearer, understandable and perhaps more interesting for non-academics.
 
 ### Home page
 The home page provides information about the problem, the data set and perhaps additional information of what the website can be used for and how it can be used.
@@ -52,6 +52,7 @@ The user can move the slider and see how the data changes per year
 - Enlargement while hovering
 - Dropdown sort by gender
 - Make it possible to sort by both age and gender at the same time per example male age group 5 - 14
+- Option to type in the year instead of slide to get the year
 
 ## Prerequisites
 ### Data sources
