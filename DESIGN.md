@@ -19,8 +19,6 @@ Note: Bootstrap will be used for the design of the website.
 
 ## Dataset
 My data is available as a who-suicide-statistics.csv in the folder project/data.
-![design](doc/technicaldesign.jpg)
-
 
 I will be using the pandas library to preprocess this data set
 In pandas I will transform the CSV to a Pandas DataFrame (pd.df.to_csv).
@@ -32,7 +30,7 @@ What happens when there is no information for a specific year?
 The slider will not show that year as an option.
 
 ## Technical Design of dataset
-
+![design](doc/technicaldesign.jpg)
 
 ## Heatmap
 ![Heatmap world](doc/worldmap.jpg)
