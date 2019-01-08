@@ -18,7 +18,10 @@ Some background information about the dataset and how and where it was collected
 Note: Bootstrap will be used for the design of the website.
 
 ## Dataset
-[WHO suicide statistics](https://www.kaggle.com/szamil/who-suicide-statistics)
+[WHO suicide statistics (dataset)](https://www.kaggle.com/szamil/who-suicide-statistics)
+My data is available as a who-suicide-statistics.csv in the folder code.
+
+
 I will be using the pandas library to preprocess this data set
 In pandas I will transform the CSV to a Pandas DataFrame (pd.df.to_csv).
 Here I will choose N/A as empty cells.
@@ -72,7 +75,7 @@ Moreover, all the information for that country will be present. Thus you don't h
 The goal is when the user clicks on another country the sunburst zooms out on the previously chosen country and zooms in the new country.
 
 ## External components
-Bootstrap
-d3 version (5.7.0)
-d3 toolti
-flare visualization toolkit
+- Bootstrap
+- d3 version (5.7.0)
+- d3 tooltip
+- flare visualization toolkit
