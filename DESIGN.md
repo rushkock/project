@@ -3,7 +3,6 @@
 ## User interface
 ![Website diagram](doc/website.jpg)
 ### Home page
-![Home](doc/home.jpg)
 The home page provides information about the problem, solution/ goal and perhaps additional information of what the website can be used for and how it can be used.
 
 ### Visualization page
@@ -14,7 +13,6 @@ The slider will be under the world map.
 The map will be in the middle of the screen with the bar chart and sunburst below.
 
 ### Sources
-![Sources](doc/sources.jpg)
 Some background information about the dataset and how and where it was collected.
 
 Note: Bootstrap will be used for the design of the website.
