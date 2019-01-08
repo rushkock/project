@@ -1,0 +1,101 @@
+<!--
+Ruchella Kock
+12460796
+Description: This is the page provides information about dataset 
+sources:
+bootstrap navbar -- https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp
+bootstrap cards -- https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_card_image&stacked=h
+chart image -- https://icons8.com/icons/set/favicon
+WHO logo -- https://www.who.int/
+flower picture -- Ruchella kock
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Suicide rate</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="sources.css">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+    </head>
+    <body>
+      <!-- Bootstrap Nav-bar -->
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">Suicide Rate</a>
+
+        <!-- links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="visualizations.html">Visualizations</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Data Information</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Flower image and quote -->
+      <div style="text-align: center;">
+        <img class= "flower2" src="../images/flower2.jpg" alt="Flowers">
+        <h1 class= "quote"> “People rarely bring flowers to a suicide.” </h1>
+        <p class= "author" style= "left:60%"> -Jennifer Niven </p>
+      </div>
+
+       <div class="card11">
+        <div class="row no-gutters">
+            <div class="col-auto">
+                <img src="../images/barchart.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col">
+                <div class="card-block px-2" id="button">
+                    <h4 class="card-title">Data Source</h4>
+                    <p class="card-text">This text is temporary.
+                    This is a website which can help visualize mental health. However, it is dataset specific.
+                    It only shows suicide rates. Suicide is not classified as a mental disorder, it is a symptom of mental disorder.
+                    This can be seen as a pro because in different countries, there are different definitions of mental health.
+                    Suicide has a more general and accepted definition regardless of circumstances.
+                    However, that may also mean that in different countries there are different circumstances that drive someone to commit suicide.
+                    An example of this is that in countries where firearms are legal, people may accidentally commit suicide,
+                    this doesn't say anything about their mental health.</p>
+                    <a href="https://www.kaggle.com/szamil/who-suicide-statistics" class="btn btn-primary">Link to data</a>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="card12">
+       <div class="row no-gutters">
+           <div class="col">
+               <div class="card-block px-2" id="button">
+                   <h4 class="card-title"> World Health Organization</h4>
+                   <p class="card-text">This text is temporary.
+                     The world health organization directs and coordinate international health within the United Nations’ system.
+                     They work in many areas such as: promoting health through the course of life, non-communicable diseases,
+                     providing leadership on matters related to health.
+                     The WHO also collects data from all over the world and provides awareness for many heaalth issues.
+                     The dataset used in this website is provided by them.</p>
+                   <a href="https://www.kaggle.com/szamil/who-suicide-statistics" class="btn btn-primary">Link to data</a>
+               </div>
+           </div>
+           <div class="col-auto">
+               <img src="../images/WHO.jpg" class="who" alt="">
+           </div>
+       </div>
+     </div>
+
+    </body>
+</html>

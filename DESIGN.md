@@ -18,7 +18,7 @@ Some background information about the dataset and how and where it was collected
 Note: Bootstrap will be used for the design of the website.
 
 ## Dataset
-My data is available as a who-suicide-statistics.csv in the folder code.
+My data is available as a who-suicide-statistics.csv in the folder project/data.
 ![design](doc/technicaldesign.jpg)
 
 

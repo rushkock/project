@@ -1,0 +1,41 @@
+/* Ruchella Kock
+12460796 */
+
+.flower2 {
+  position: relative;
+  top: -450px;
+  left: 0px;
+  width:100%;
+  height:800px;
+}
+
+.dataInfo {
+height: 300px;
+width: 100%;
+background-color: #bae4bc;
+}
+.paragraphs {
+text-align: center;
+height: 200px;
+width: 1000px;
+font-size: 18px
+}
+.img-fluid {
+  width:375px;
+  height:300px;
+}
+.card11 {
+  position: absolute;
+  top: 400px;
+  left: 50px;
+}
+
+.card12 {
+  position: absolute;
+  top: 700px;
+  left: 50px;
+}
+
+#button{
+  text-align: center;
+}

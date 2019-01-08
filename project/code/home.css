@@ -33,7 +33,6 @@
   top: 400px;
   left: 550px;
 }
-
 .card3 {
   position: absolute;
   top: 400px;
@@ -41,4 +40,8 @@
 }
 p, .card-title {
   text-align: center
+}
+
+#button{
+  text-align: center;
 }
