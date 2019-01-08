@@ -18,8 +18,8 @@ Some background information about the dataset and how and where it was collected
 Note: Bootstrap will be used for the design of the website.
 
 ## Dataset
-[WHO suicide statistics (dataset)](https://www.kaggle.com/szamil/who-suicide-statistics)
 My data is available as a who-suicide-statistics.csv in the folder code.
+![design](doc/technicaldesign.jpg)
 
 
 I will be using the pandas library to preprocess this data set
@@ -30,6 +30,8 @@ Therefore I will remove 0's based on a specific criteria. To date the chosen cri
 
 What happens when there is no information for a specific year?
 The slider will not show that year as an option.
+
+## Technical Design of dataset
 
 
 ## Heatmap
