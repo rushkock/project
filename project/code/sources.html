@@ -1,7 +1,7 @@
 <!--
 Ruchella Kock
 12460796
-Description: This is the page provides information about dataset 
+Description: This is the page provides information about dataset
 sources:
 bootstrap navbar -- https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp
 bootstrap cards -- https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_card_image&stacked=h
@@ -24,8 +24,8 @@ flower picture -- Ruchella kock
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
         <!-- stylesheets -->
-        <link rel="stylesheet" href="home.css">
-        <link rel="stylesheet" href="sources.css">
+        <link rel="stylesheet" href="style/home.css">
+        <link rel="stylesheet" href="style/sources.css">
         <link rel="shortcut icon" href="../images/favicon.ico">
     </head>
     <body>
@@ -63,14 +63,12 @@ flower picture -- Ruchella kock
             <div class="col">
                 <div class="card-block px-2" id="button">
                     <h4 class="card-title">Data Source</h4>
-                    <p class="card-text">This text is temporary.
-                    This is a website which can help visualize mental health. However, it is dataset specific.
-                    It only shows suicide rates. Suicide is not classified as a mental disorder, it is a symptom of mental disorder.
-                    This can be seen as a pro because in different countries, there are different definitions of mental health.
-                    Suicide has a more general and accepted definition regardless of circumstances.
-                    However, that may also mean that in different countries there are different circumstances that drive someone to commit suicide.
-                    An example of this is that in countries where firearms are legal, people may accidentally commit suicide,
-                    this doesn't say anything about their mental health.</p>
+                    <p class="card-text">The data was collected from kaggle. However, it has been collected and published by the World Health Organization(WHO).
+                    It provides information for countries all over the world. For each country it gives data for the years 1979-2016 (some years are missing for some countries).
+                    The data consists of the number of suicides and the population size for different age groups. The smallest age group is 5 - 14 and the biggest one is 75+.
+                    It also provides information about gender. It is a large dataset consisting of 43776 entries.
+                    Preprocessing of the data included removing empty columns and removing information about a year if the number of suicde for all the age groups are 0.
+                    </p>
                     <a href="https://www.kaggle.com/szamil/who-suicide-statistics" class="btn btn-primary">Link to data</a>
                 </div>
             </div>
@@ -83,12 +81,13 @@ flower picture -- Ruchella kock
                <div class="card-block px-2" id="button">
                    <h4 class="card-title"> World Health Organization</h4>
                    <p class="card-text">This text is temporary.
-                     The world health organization directs and coordinate international health within the United Nations’ system.
-                     They work in many areas such as: promoting health through the course of life, non-communicable diseases,
-                     providing leadership on matters related to health.
+                     The world health organization(WHO) is an organization existing for over 70 years.
+                     Its purpose is directing and coordinating international health within the United Nations.
+                     They work in many areas such as: promoting health through the course of life, acting during natural and manmade emergencies,
+                     providing leadership to participating countries on matters related to health.
                      The WHO also collects data from all over the world and provides awareness for many heaalth issues.
-                     The dataset used in this website is provided by them.</p>
-                   <a href="https://www.kaggle.com/szamil/who-suicide-statistics" class="btn btn-primary">Link to data</a>
+                   </p>
+                   <a href="https://www.who.int/" class="btn btn-primary">Link to website</a>
                </div>
            </div>
            <div class="col-auto">
