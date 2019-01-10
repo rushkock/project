@@ -7,35 +7,19 @@
 
 window.onload = function()
 {
-  var requests = [d3.json("../data/json/world_countries.json"), d3.tsv("../data/json/world_population.tsv"), d3.json("../data/json/suicide_pooled.json")];
+  var requests = [d3.json("../data/json/world_countries.json"), d3.tsv("../data/world_population.tsv"), d3.json("../data/json/suicide_pooled.json")];
 
   Promise.all(requests).then(function(response) {
+    console.log(response[0])
     console.log(response[2])
      make_map(response)
+
   }).catch(function(e){
       throw(e);
   });
 }
 
-///////////////////////////////////////////////////////////////////////////////
-/////////////////        Functions that process data    //////////////////////
-//////////////////////////////////////////////////////////////////////////////
-
-// this function returns the data for the chosen year
-function processDate(data, year){
-  date = []
-  yearF = parseFloat(year)
-  console.log(year)
-  for (i in data){
-    if (data[i].year === yearF){
-      date.push(data[i])
-    }
-  }
-  return date
-}
-
-
-function make_map(requests){
+function make_map(response){
   var tooltip = d3.select("body")
                   .append("div")
                   .attr("class", "tooltip")
@@ -48,8 +32,9 @@ function make_map(requests){
               height = 500 - margin.top - margin.bottom;
 
   var color = d3.scaleThreshold()
-      .domain([10000,100000,500000,1000000,5000000,10000000,50000000,100000000,500000000,1500000000])
-      .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)"]);
+                .domain([0,10,100,200,500,1000,5000,10000,15000,20000])
+                .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)",
+                        "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)"]);
 
   var path = d3.geoPath();
 
@@ -62,56 +47,86 @@ function make_map(requests){
 
   var projection = d3.geoMercator()
                      .scale(130)
-                    .translate( [width / 2, height / 1.5]);
+                     .translate( [width / 2, height / 1.5]);
 
-  var path = d3.geoPath().projection(projection);
+  var path = d3.geoPath()
+               .projection(projection);
 
-  // svg.call(tip);
-
-  data = requests[0]
-  population = requests[1]
+  data = response[0]
+  population = response[1]
   var populationById = {};
 
   population.forEach(function(d) { populationById[d.id] = +d.population; });
   data.features.forEach(function(d) { d.population = populationById[d.id] });
+  year = makeSlider()
+  pooledData = processDate(response[2], year)
 
   svg.append("g")
       .attr("class", "countries")
-    .selectAll("path")
+      .selectAll("path")
       .data(data.features)
-    .enter().append("path")
+      .enter()
+      .append("path")
       .attr("d", path)
-      .style("fill", function(d) { return color(populationById[d.id]); })
+      .style("fill", function(d){
+        foundColor = "";
+        console.log(pooledData)
+        pooledData.forEach(function(t){
+          if (t.country === d.properties["name"]){
+            foundColor = color(t.suicides_no);}
+        })
+        return foundColor;
+      })
       .style('stroke', 'white')
       .style('stroke-width', 1.5)
       .style("opacity",0.8)
       // tooltips
-        .style("stroke","white")
-        .style('stroke-width', 0.3)
-        .on('mouseover',function(d){
+      .style("stroke","white")
+      .style('stroke-width', 0.3)
+      .on('mouseover',function(d){
+          tooltip.transition()
+                  .duration(10)
+                  .style("opacity", 1)
+                  .style("stroke","black")
+                  .style("stroke-width", 5);
+
+          selectedState = getSelectedState(d, pooledData)
+          console.log(selectedState)
+          if (selectedState === "") {
+            tooltip.html("<div id='thumbnail'><span> No Data")
+                   .style("left", (d3.event.pageX) + "px")
+                   .style("top", (d3.event.pageY) + "px");
+          }
+          else {
+            tooltip.html("<div id='thumbnail'><span> Country: "
+                         + selectedState.country + "<br> Suicides: "
+                         + selectedState.suicides_no + "<br> Population Size: "
+                         + selectedState.population)
+                   .style("left", (d3.event.pageX) + "px")
+                   .style("top", (d3.event.pageY) + "px");
+            }
 
           d3.select(this)
             .style("opacity", 1)
             .style("stroke","white")
             .style("stroke-width",3);
-        })
-        .on('mouseout', function(d){
+      })
+      .on('mouseout', function(d){
+          tooltip.transition()
+                 .duration(500)
+                 .style("stroke","white")
+                 .style("opacity", 0);
 
           d3.select(this)
             .style("opacity", 0.8)
             .style("stroke","white")
             .style("stroke-width",0.3);
-        });
+      });
 
   svg.append("path")
-      .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
-       // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
-      .attr("class", "names")
-      .attr("d", path);
-
-      year = makeSlider()
-      processDate(response[2], year)
-
+     .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
+     .attr("class", "names")
+     .attr("d", path);
 }
 
 // this function makes the slider for the years and it also returns which year is chosen
@@ -130,7 +145,7 @@ function makeSlider(){
     .width(900)
     .tickFormat(d3.timeFormat('%Y'))
     .tickValues(dataTime)
-    .default(new Date(1998, 10, 3))
+    .default(new Date(2010, 10, 3))
     .on('onchange', val => {
       d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
     });
@@ -149,3 +164,30 @@ function makeSlider(){
   d3.select('p#value-time').text(year);
   return year
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+/////////////////        Functions that process data    //////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+// this function returns the data for the chosen year
+function processDate(data, year){
+  date = []
+  yearF = parseFloat(year)
+  console.log(year)
+  for (i in data){
+    if (data[i].year === yearF){
+      date.push(data[i])
+    }
+  }
+  return date
+}
+
+// this functions gets the states that the mouse is hovering over
+function getSelectedState(d, pooledData){
+   selectedState = "";
+   pooledData.forEach(function(e) {
+     if (e.country == d.properties["name"]){ selectedState = e;}
+   })
+   return selectedState;
+};

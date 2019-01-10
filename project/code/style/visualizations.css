@@ -1,11 +1,14 @@
 /* Ruchella Kock
 12460796 */
 
+/* SLIDER */
 #slider {
   position: absolute;
   top:500px;
 }
 
+/* DROPDOWN */
+/* Source: MAY BE REMOVED LATER */
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -46,4 +49,19 @@
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+/* TOOLTIP */
+/*  Source: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f */
+.tooltip {
+  position: absolute;
+  line-height: 1.5;
+  font-weight: 1000;
+  font-family:"avenir next", Arial, sans-serif;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFA500;
+  border-radius: 1px;
+  pointer-events: none;
+  text-align: center;
 }
