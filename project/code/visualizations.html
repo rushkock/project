@@ -23,6 +23,7 @@ Description: This page shows the visualizations (map, barchart and sunburst)
         <link rel="stylesheet" href="style/visualizations.css">
 
         <!-- JS script for charts -->
+        <script src="main.js"></script>
         <script src="sunburst.js"></script>
         <script src="barchart.js"></script>
         <script src="map.js"></script>
@@ -87,6 +88,35 @@ Description: This page shows the visualizations (map, barchart and sunburst)
       <div class = "barChart">
 
       </div>
+      <div class= "boxMap">
+        <h1> Number of suicides <br> in the world </h1>
+        <p> In this map you can see the number of suicides per country. <br>
+          The darker the country, the higher the number of suicides
+        </p>
+        <div class= subBoxMap>
+          <div class="subBoxMapCountry">
+            <h1></h1>
+          </div>
+          <div class = "countryStatistics">
+            <div class= "label"> Suicides per 10000: </div>
+            <div class="subBoxMapSuicidesPer10000 val"></div>
+          </div>
+          <div class = "countryStatistics">
+            <div class= "label"> Percentage of suicides: </div>
+            <div class="subBoxMapSuicidesPercentage val"></div>
+          </div>
+          <div class = "countryStatistics">
+            <div class= "label"> Suicides:  </div>
+            <div class="subBoxMapSuicides val"></div>
+          </div>
+          <br>
+          <div class = "countryStatistics">
+            <div class= "label"> Total population: </div>
+            <div class="subBoxMapPopulation val"></div>
+          </div>
+        </div>
+      </div>
+
       <div class = "worldMap">
         <!-- <div class="dropdown">
           <button class="dropbtn">Filter by Age</button>

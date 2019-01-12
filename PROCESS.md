@@ -23,4 +23,12 @@ My data was not loaded in yet, and none of the links for filtering work.
 ![First map design](map_progress.jpg)
 
 # day 4 (10 - 01 - 2018)
-I started the day
+I linked my data to my map. I learned that a lot of countries are missing in my data.
+I did not make any big insights but I do have a big to do list.
+- Most importantly a suicide number of a country with a big population will most likely be higher than that of a country with a small population.
+In this case the colours do not say anything. I need to find a solution for this.
+- Write the update function.
+- All visualizations should be done next week Friday thus I need to work on those before I link my visualizations.
+
+# day 5 (11 - 01 - 2018)
+I decided to calculate the number of suicides per 10000. As that gives more insight and makes it better comparable.

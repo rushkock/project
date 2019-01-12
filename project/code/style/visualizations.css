@@ -7,6 +7,89 @@
   top:500px;
 }
 
+.mytooltip
+{
+  /* position relative to previous pos */
+  position:absolute;
+  /*  align box */
+  text-align: left;
+  /*  width of box*/
+  width: 100px;
+  height: 50;
+  /*  color of box */
+  background-color: #FFA07A;
+  /*  make it round*/
+  border-radius: 5px;
+  /*  color of text */
+  color: #000000;
+  /* adjust box size */
+  /* padding: 5px 10px; */
+}
+
+/*  text inside box */
+.mytooltip span
+{
+  display: block;
+  text-align: center;
+  width: 100px;
+  height: auto;
+  margin: 5px auto;
+}
+
+/* .worldMap{
+  position: absolute;
+  left: 100px;
+  width: 100%;
+  height: 100%;
+} */
+
+.boxMap {
+  position: absolute;
+  top: 100px;
+  left: 1000px;
+  width: 500px;
+  text-align: center;
+  font-family: Georgia;
+}
+
+.subBoxMap {
+  position: absolute;
+  top: 250px;
+  left: 80px;
+  width: 300px;
+  height: 150px;
+  border: solid black 0.5px;
+  font-family: Georgia;
+  line-height: normal;
+  /* text-align: left; */
+}
+
+.subBoxMap div {
+  visibility: hidden;
+}
+.countryStatistics {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.label{
+  font-weight: bold;
+  float:left;
+}
+
+.val{
+  float:left;
+  margin-left: 3px;
+}
+
+.barChart{
+  position: absolute;
+  top: 650px;
+  left: 50px;
+  height: 500px;
+  overflow: scroll;
+}
+
 /* DROPDOWN */
 /* Source: MAY BE REMOVED LATER */
 .dropbtn {
