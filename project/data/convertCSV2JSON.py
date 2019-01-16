@@ -26,6 +26,7 @@ def main():
     df["percentage_suicides"] = df["suicides_no"]/df["population"]*100
     grouped_df = df.groupby(by=["country", "year"], as_index=False).filter(
                             lambda x: x["suicides_no"].sum() > 0)
+                            
     grouped_df = df.groupby(by=["country", "year"], as_index=False).sum()
     print(grouped_df)
 
