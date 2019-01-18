@@ -6,8 +6,8 @@
 function makeSunburst(data){
   root = getHierarchical(data)
   // set the height and width of the svg and the radius of the sunburst
-  const width = window.innerWidth,
-        height = window.innerHeight,
+  const width = 650,
+        height = 650,
         maxRadius = (Math.min(width, height) / 2) - 5;
 
   // format to one decimal
@@ -61,8 +61,8 @@ function makeSunburst(data){
 
       const svg = d3.select('.sunburst')
                     .append('svg')
-                    .style('width', '100vw')
-                    .style('height', '100vh')
+                    .style('width', width)
+                    .style('height', height)
                     .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
                     .on('click', () => focusOn());
 

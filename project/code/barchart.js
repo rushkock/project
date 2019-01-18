@@ -156,9 +156,10 @@ function updateBar(data, color) {
 
       rect.exit().remove();
 
-  d3.select(".xAxis").remove()
-  d3.select(".yAxis").remove()
-  var svg = d3.select(".barChart").select("svg")
+  d3.select(".xAxis").remove();
+  d3.select(".yAxis").remove();
+  var svg = d3.select(".barChart").select("svg");
+  var myTool = d3.select(".mytooltip");
   // make xAxis
   var xAxis = d3.axisTop()
                 .scale(xScale);
@@ -173,8 +174,33 @@ function updateBar(data, color) {
                .attr("class", "yAxis")
                .attr("transform", "translate(120, 50)")
                .call(yAxis);
-      rect.attr("fill", function(d){ return color(d.suicides_per_10000);
-  });
+      rect.attr("fill", function(d){ return color(d.suicides_per_10000);});
+      rect.on("mouseover", function(d)
+          {
+          //bars
+           d3.select(this)
+             .transition()
+             .duration(10)
+             .attr("fill", function(d) { return "orange";});
+          //text
+            myTool.transition()
+                  .duration(10)
+                  .style("display", "block");
+
+            myTool.html("<div id='thumbnail'><span>" + d.country + ": " + Math.round(d.suicides_per_10000) +  "</span></div>")
+                  .style("left",(d3.event.pageX) + 20 + "px")
+                  .style("top", (d3.event.pageY)  - 10 + "px");
+          })
+          .on("mouseout", function(d)
+          {
+             d3.select(this)
+               .transition()
+               .duration(10)
+               .attr("fill", function(d){ return color(d.suicides_per_10000);});
+             myTool.transition()
+                   .duration(10)
+                   .style("display", "none"); //The tooltip disappears
+         });
 }
 
 // this function returns the data for the chosen year

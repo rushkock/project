@@ -7,6 +7,7 @@
   top:500px;
 }
 
+/* Map */
 .mytooltip
 {
   /* position relative to previous pos */
@@ -82,16 +83,17 @@
   margin-left: 3px;
 }
 
+/*  Barchart */
 .barChart{
   position: absolute;
   top: 650px;
   left: 50px;
-  height: 500px;
+  height: 650px;
   overflow: scroll;
 }
 
 /* DROPDOWN */
-/* Source: MAY BE REMOVED LATER */
+/* MAY BE REMOVED LATER */
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -183,6 +185,6 @@ body {
 
 .sunburst {
   position: absolute;
-  top: 1200px;
-  left: 500;
+  top: 650px;
+  left: 700px;
 }

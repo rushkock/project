@@ -121,7 +121,7 @@ function makeMap(response){
      .attr("class", "names")
      .attr("d", path);
 
-     makeLegend(svg, color, width);
+     makeLegend(svg, color, width, max);
 }
 
 // this function makes the slider for the years and it also returns which year is chosen
@@ -140,11 +140,11 @@ function makeSlider(data, color, tooltip){
                      .tickFormat(d3.timeFormat('%Y'))
                      .tickValues(dataTime)
                      .default(new Date(2002, 10, 3))
-                     .on('onchange', val => {
+                     .on('onchange', function(val){
                        d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
                        var newData = processDate(data[2], d3.timeFormat('%Y')(sliderTime.value()));
                        var filteredData = processDate(data[3], d3.timeFormat('%Y')(sliderTime.value()));
-                       update(data, newData, color, tooltip);
+                       update(data, newData, color, tooltip, age);
                        filter(data, newData, filteredData, color, tooltip);
                        updateBar(newData, color);
                        updateSunburst(filteredData);
@@ -164,7 +164,7 @@ function makeSlider(data, color, tooltip){
 }
 
 // this function updates the data of the map, changes the colors and the tooltip
-function update(data, newData, color, tooltip){
+function update(data, newData, color, tooltip, age){
   var map = d3.select(".countries")
               .selectAll("path")
               .data(data[0].features)
@@ -226,7 +226,7 @@ function update(data, newData, color, tooltip){
 
 // this functions makes the legends and writes the text
 // source : https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient.html
-function makeLegend(gr, color, w)
+function makeLegend(gr, color, w, max)
 {
   var width = 400;
   var height = 200;
@@ -270,7 +270,7 @@ function makeLegend(gr, color, w)
     //Set scale for x-axis
     var xScale = d3.scaleLinear()
     	             .range([0, 300])
-    	             .domain([15, 23]);
+    	             .domain([0, max]);
 
     // make xAxis
     var xAxis = d3.axisBottom(xScale);
@@ -322,7 +322,7 @@ function getSelectedState(d, pooledData){
    });
    return selectedState;
 }
-var age;
+var age = "all";
 
 // this function filters the data when user choses an age
 function filter(response, allData, filteredData, color, tooltip){
