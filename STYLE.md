@@ -1,6 +1,6 @@
-#Styleguide
+# Styleguide
 
-##Sources:
+## Sources:
 
 [Javascript style guide](https://standardjs.com/rules.html)
 
