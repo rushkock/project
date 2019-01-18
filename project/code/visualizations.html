@@ -27,6 +27,8 @@ Description: This page shows the visualizations (map, barchart and sunburst)
         <script src="sunburst.js"></script>
         <script src="barchart.js"></script>
         <script src="map.js"></script>
+        <script src="practice.js"></script>
+
 
         <!-- D3 links -->
         <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -65,12 +67,13 @@ Description: This page shows the visualizations (map, barchart and sunburst)
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Filter by age</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">5-14 years</a>
-              <a class="dropdown-item" href="#">15-24 years</a>
-              <a class="dropdown-item" href="#">25-34 years</a>
-              <a class="dropdown-item" href="#">35-54 years</a>
-              <a class="dropdown-item" href="#">55-74 years</a>
-              <a class="dropdown-item" href="#">75+ years</a>
+              <a class="dropdown-item" value="all" href="#">all ages</a>
+              <a class="dropdown-item" value="5-14 years" href="#">5-14 years</a>
+              <a class="dropdown-item" value="15-24 years" href="#">15-24 years</a>
+              <a class="dropdown-item" value="25-34 years" href="#">25-34 years</a>
+              <a class="dropdown-item" value="35-54 years" href="#">35-54 years</a>
+              <a class="dropdown-item" value="55-74 years" href="#">55-74 years</a>
+              <a class="dropdown-item" value="75+ years" href="#">75+ years</a>
             </div>
           </li>
         </ul>
@@ -86,6 +89,9 @@ Description: This page shows the visualizations (map, barchart and sunburst)
 
       <!-- div for the SVGs -->
       <div class = "barChart">
+
+      </div>
+      <div class = "practice">
 
       </div>
       <div class= "boxMap">

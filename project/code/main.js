@@ -9,8 +9,22 @@ window.onload = function()
   Promise.all(requests).then(function(response) {
      makeMap(response)
      makeBar(response)
-     makeSunburst(response)
+    data = processDate(response[3], 2005)
+    makeSunburst(data)
+     // practice(response)
   }).catch(function(e){
       throw(e);
   });
+}
+
+// this function returns the data for the chosen year
+function processDate(data, year){
+  var date = []
+  var yearF = parseFloat(year)
+  for (i in data){
+    if (data[i].year === yearF){
+      date.push(data[i])
+    }
+  }
+  return date
 }

@@ -26,12 +26,12 @@ def main():
     df["percentage_suicides"] = df["suicides_no"]/df["population"]*100
     grouped_df = df.groupby(by=["country", "year"], as_index=False).filter(
                             lambda x: x["suicides_no"].sum() > 0)
-                            
-    grouped_df = df.groupby(by=["country", "year"], as_index=False).sum()
+
+    # grouped_df = df.groupby(by=["country", "year"], as_index=False).sum()
     print(grouped_df)
 
     # transform df to json
-    grouped_df.to_json(path_or_buf="json/suicide_pooled.json", orient="records")
+    grouped_df.to_json(path_or_buf="json/suicide.json", orient="records")
 
 
 if __name__ == '__main__':

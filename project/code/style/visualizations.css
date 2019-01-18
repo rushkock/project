@@ -149,11 +149,17 @@
   text-align: center;
 }
 
+/* .practice {
+  position: absolute;
+  top: 100px;
+  left: 500px;
+} */
+
 /* SUNBURST */
 
 body {
     font-family: Sans-serif;
-    font-size: 11px;
+    font-size: 6px;
 }
 
 .slice {
@@ -161,8 +167,8 @@ body {
 }
 
 .slice .main-arc {
-    stroke: #fff;
-    stroke-width: 1px;
+    stroke: black;
+    stroke-width: 0.2px;
 }
 
 .slice .hidden-arc {
@@ -177,6 +183,6 @@ body {
 
 .sunburst {
   position: absolute;
-  top: 650px;
-  left: 800px;
+  top: 1200px;
+  left: 500;
 }
