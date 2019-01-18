@@ -1,12 +1,4 @@
-#Styleguide
-
-##Sources:
-
-[Javascript style guide](https://standardjs.com/rules.html)
-
-[Javascript style guide](https://github.com/standard/standard)
-
-[D3 style guide](https://northlandia.wordpress.com/2014/10/23/ten-best-practices-for-coding-with-d3/)
+# Styleguide
 
 - Rule 1:
 Use single quotes for strings (‘blop’ not “blop”). This looks the neatest. Only use double quotes to avoid escaping (“<div class=’box’>”).
@@ -42,3 +34,11 @@ Assign static or default styles using a CSS stylesheet. It clearer to have a sep
 
 - Rule 10:
 Make sure the data is in the correct type for the operations using it. If you need to make calculations with a list of numbers for example, make sure the list is of numbers, and not strings.
+
+## Sources:
+
+[Javascript style guide](https://standardjs.com/rules.html)
+
+[Javascript style guide](https://github.com/standard/standard)
+
+[D3 style guide](https://northlandia.wordpress.com/2014/10/23/ten-best-practices-for-coding-with-d3/)
