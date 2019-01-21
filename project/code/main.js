@@ -8,8 +8,9 @@ window.onload = function()
 
   Promise.all(requests).then(function(response) {
      makeMap(response);
+     allData = processDate(response[2], 2005);
      data = processDate(response[3], 2005);
-     makeSunburst(data);
+     filterSunburst(allData, data, "10");
      makeBar(response);
 
      // practice(response)

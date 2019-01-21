@@ -82,12 +82,11 @@ function makeBar(response){
                      .range(['#FF0033','#FFFF33'])
                      .domain([0, d3.max(data, function(d) { return d.suicides_per_10000;})]);
 
-  function makeY(d, i){return i * (h / data.length) + 50;}
-  function makeX(d, i){return 0 + 121;}
-  function widthRect(d){return xScale(d.suicides_per_10000);}
-  function heightRect(d){return h / data.length - barPadding;}
-  function makeColor(d){return color(d.suicides_per_10000);}
-
+ function makeY(d, i){return yScale(d.country) + 50;}
+ function makeX(d, i){return 121;}
+ function widthRect(d){return xScale(d.suicides_per_10000);}
+ var heightRect = yScale.bandwidth();
+ function makeColor(d){return color(d.suicides_per_10000);}
 
   rect.attr("y", makeY)
       .attr("x", makeX)
@@ -125,11 +124,6 @@ function makeBar(response){
 // this function updates the data
 function updateBar(data, color) {
   data =  data.sort(function(a,b){return b.suicides_per_10000-a.suicides_per_10000;});
-  function makeY(d, i){ return i * (h / data.length) + 50;}
-  function makeX(d, i){return 121;}
-  function widthRect(d){return xScale(d.suicides_per_10000);}
-  function heightRect(d){return h / data.length - barPadding;}
-  function makeColor(d){return color(d.suicides_per_10000);}
 
   var xScale = d3.scaleLinear()
                  .domain([0, d3.max(data, function(d) { return d.suicides_per_10000;})])
@@ -139,6 +133,13 @@ function updateBar(data, color) {
                 .range([0, h])
                 .padding(0.1)
                 .domain(data.map(function(d) { return d.country; }));
+
+  function makeY(d, i){return yScale(d.country) + 50;}
+  function makeX(d, i){return 121;}
+  function widthRect(d){return xScale(d.suicides_per_10000);}
+  var heightRect = yScale.bandwidth();
+  function makeColor(d){return color(d.suicides_per_10000);}
+
 
 
   var rect = d3.select(".barChart")

@@ -66,13 +66,22 @@ Description: This page shows the visualizations (map, barchart and sunburst)
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Filter by age</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" value="all" href="#">all ages</a>
-              <a class="dropdown-item" value="5-14 years" href="#">5-14 years</a>
-              <a class="dropdown-item" value="15-24 years" href="#">15-24 years</a>
-              <a class="dropdown-item" value="25-34 years" href="#">25-34 years</a>
-              <a class="dropdown-item" value="35-54 years" href="#">35-54 years</a>
-              <a class="dropdown-item" value="55-74 years" href="#">55-74 years</a>
-              <a class="dropdown-item" value="75+ years" href="#">75+ years</a>
+              <a class="dropdown-item" id="age" value="all" href="#">All ages</a>
+              <a class="dropdown-item" id="age" value="5-14 years" href="#">5-14 years</a>
+              <a class="dropdown-item" id="age" value="15-24 years" href="#">15-24 years</a>
+              <a class="dropdown-item" id="age" value="25-34 years" href="#">25-34 years</a>
+              <a class="dropdown-item" id="age" value="35-54 years" href="#">35-54 years</a>
+              <a class="dropdown-item" id="age" value="55-74 years" href="#">55-74 years</a>
+              <a class="dropdown-item" id="age" value="75+ years" href="#">75+ years</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Filter sunburst</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" id="sunburstDropdown" value="allCountries" href="#">All</a>
+              <a class="dropdown-item" id="sunburstDropdown" value="50" href="#">top 50</a>
+              <a class="dropdown-item" id="sunburstDropdown" value="25" href="#">top 25</a>
+              <a class="dropdown-item" id="sunburstDropdown" value="10" href="#">top 10</a>
             </div>
           </li>
         </ul>
@@ -123,17 +132,6 @@ Description: This page shows the visualizations (map, barchart and sunburst)
       </div>
 
       <div class = "worldMap">
-        <!-- <div class="dropdown">
-          <button class="dropbtn">Filter by Age</button>
-          <div class="dropdown-content">
-          <a href="#">5-14 years</a>
-          <a href="#">15-24 years</a>
-          <a href="#">25-34 years</a>
-          <a href="#">35-54 years</a>
-          <a href="#">55-74 years</a>
-          <a href="#">75+ years</a>
-          </div>
-        </div> -->
         <div class="row align-items-center" id="slider">
           <div class="col-sm-2"><p id="value-time"></p></div>
           <div class="col-sm"><div id="slider-time"></div></div>

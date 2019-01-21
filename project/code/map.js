@@ -34,7 +34,7 @@ function makeMap(response){
 
   var path = d3.geoPath();
   var year = makeSlider(response, color, tooltip);
-  filter(response, pooledData, filterData, color, tooltip);
+  onclick(response, pooledData, filterData, color, tooltip);
   var svg = d3.select(".worldMap")
               .append("svg")
               .attr("width", width)
@@ -144,10 +144,12 @@ function makeSlider(data, color, tooltip){
                        d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
                        var newData = processDate(data[2], d3.timeFormat('%Y')(sliderTime.value()));
                        var filteredData = processDate(data[3], d3.timeFormat('%Y')(sliderTime.value()));
-                       update(data, newData, color, tooltip, age);
-                       filter(data, newData, filteredData, color, tooltip);
+                       var ageFiltered = filter(data, newData, filteredData, color, tooltip);
+                       filterSunburst(newData, filteredData, value)
+
+                       update(data, newData, ageFiltered, color, tooltip);
                        updateBar(newData, color);
-                       updateSunburst(filteredData);
+                       onclick(data, newData, filteredData, color, tooltip)
                       });
 
   var gTime = d3.select('div#slider-time')
@@ -161,67 +163,6 @@ function makeSlider(data, color, tooltip){
   var year = d3.timeFormat('%Y')(sliderTime.value());
   d3.select('p#value-time').text(year);
   return year;
-}
-
-// this function updates the data of the map, changes the colors and the tooltip
-function update(data, newData, color, tooltip, age){
-  var map = d3.select(".countries")
-              .selectAll("path")
-              .data(data[0].features)
-              .style("fill", function(d)
-            {
-              var foundColor = "";
-              newData.forEach(function(t){
-                if (t.country === d.properties.name){
-                  foundColor = color(t.suicides_per_10000);}
-              });
-            return foundColor;
-          })
-          .on('mouseover',function(d){
-              tooltip.transition()
-                      .duration(10)
-                      .style("opacity", 1)
-                      .style("stroke","black")
-                      .style("stroke-width", 5);
-
-              var selectedState = getSelectedState(d, newData);
-              subBoxMap(selectedState);
-              if (selectedState === "") {
-                d3.select(".noData")
-                  .style("visibility", "visible");
-
-                tooltip.html("<div id='thumbnail'><span> No Data")
-                       .style("left", (d3.event.pageX) + "px")
-                       .style("top", (d3.event.pageY) + "px");
-              }
-              else {
-                d3.select(".subBoxMap").selectAll("*").style("visibility", "visible");
-                tooltip.html("<div id='thumbnail'><span> Country: " +
-                             selectedState.country + "<br> Suicides per 10000: "+
-                             Math.round(selectedState.suicides_per_10000))
-                       .style("left", (d3.event.pageX) + "px")
-                       .style("top", (d3.event.pageY) + "px");
-                }
-
-              d3.select(this)
-                .style("opacity", 1)
-                .style("stroke","white")
-                .style("stroke-width",3);
-          })
-          .on('mouseout', function(d){
-              // change the visibility of the text in the subbox and the text that is generated when there is no data
-              d3.select(".subBoxMap").selectAll("*").style("visibility", "hidden");
-              d3.select(".noData").style("visibility", "hidden");
-              tooltip.transition()
-                     .duration(500)
-                     .style("stroke","white")
-                     .style("opacity", 0);
-
-              d3.select(this)
-                .style("opacity", 0.8)
-                .style("stroke","white")
-                .style("stroke-width",0.3);
-          });
 }
 
 // this functions makes the legends and writes the text
@@ -298,6 +239,78 @@ function subBoxMap(data){
    }
 }
 
+
+// this function updates the data of the map, changes the colors and the tooltip
+function update(response, newData, filtered, color, tooltip){
+  if (value === "all"){
+    var data = newData;
+  }
+  else if (value === "50" || value === "25" || value === "10" || value === "allCountries"){
+    var data = newData
+  }
+  else {
+    var data = filtered;
+  }
+
+  var map = d3.select(".countries")
+              .selectAll("path")
+              .data(response[0].features)
+              .style("fill", function(d)
+            {
+              var foundColor = "";
+              data.forEach(function(t){
+                if (t.country === d.properties.name){
+                  foundColor = color(t.suicides_per_10000);}
+              });
+            return foundColor;
+          })
+          .on('mouseover',function(d){
+              tooltip.transition()
+                      .duration(10)
+                      .style("opacity", 1)
+                      .style("stroke","black")
+                      .style("stroke-width", 5);
+
+              var selectedState = getSelectedState(d, data);
+              subBoxMap(selectedState);
+              if (selectedState === "") {
+                d3.select(".noData")
+                  .style("visibility", "visible");
+
+                tooltip.html("<div id='thumbnail'><span> No Data")
+                       .style("left", (d3.event.pageX) + "px")
+                       .style("top", (d3.event.pageY) + "px");
+              }
+              else {
+                d3.select(".subBoxMap").selectAll("*").style("visibility", "visible");
+                tooltip.html("<div id='thumbnail'><span> Country: " +
+                             selectedState.country + "<br> Suicides per 10000: "+
+                             Math.round(selectedState.suicides_per_10000))
+                       .style("left", (d3.event.pageX) + "px")
+                       .style("top", (d3.event.pageY) + "px");
+                }
+
+              d3.select(this)
+                .style("opacity", 1)
+                .style("stroke","white")
+                .style("stroke-width",3);
+          })
+          .on('mouseout', function(d){
+              // change the visibility of the text in the subbox and the text that is generated when there is no data
+              d3.select(".subBoxMap").selectAll("*").style("visibility", "hidden");
+              d3.select(".noData").style("visibility", "hidden");
+              tooltip.transition()
+                     .duration(500)
+                     .style("stroke","white")
+                     .style("opacity", 0);
+
+              d3.select(this)
+                .style("opacity", 0.8)
+                .style("stroke","white")
+                .style("stroke-width",0.3);
+          });
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////        Functions that process data    //////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -322,46 +335,56 @@ function getSelectedState(d, pooledData){
    });
    return selectedState;
 }
-var age = "all";
+var value = "all";
+var id = "";
 
 // this function filters the data when user choses an age
 function filter(response, allData, filteredData, color, tooltip){
+    var formatData = [];
+    if (value != "all" && id === "age"){
+      var data = filteredData;
+      // get for each country the 2 entries (male and female) for that age
+      var container = [];
+      for (var i in data){
+        if (data[i].age === value){
+          container.push(data[i]);
+        }
+      }
+
+      // sum the values for male and female together
+      var newContainer = d3.nest()
+                      .key(function(d) { return d.country; })
+                      .rollup(function(v) { return {
+                        suicides_no: d3.sum(v, function(d) { return d.suicides_no; }),
+                        suicides_per_10000: d3.sum(v, function(d) { return d.suicides_per_10000; }),
+                        percentage_suicides: d3.sum(v, function(d) { return d.percentage_suicides; }),
+                        population: d3.sum(v, function(d) { return d.population; })
+                       }; })
+                      .entries(container);
+
+      // get the data in the right format
+      for (var j in newContainer){
+        var values = newContainer[j].value;
+        values.country = newContainer[j].key;
+        formatData.push(values);
+      }
+      update(response, allData, formatData, color, tooltip);
+    }
+    else if(id === "age"){
+      update(response, allData, allData, color, tooltip);
+    }
+    return formatData;
+}
+
+function onclick(response, allData, filteredData, color, tooltip){
   d3.selectAll(".dropdown-item")
    .on("click", function()
    {
-      var age = this.getAttribute("value");
-      if (age != "all"){
-        var data = filteredData;
-        // get for each country the 2 entries (male and female) for that age
-        var container = [];
-        for (var i in data){
-          if (data[i].age === age){
-            container.push(data[i]);
-          }
-        }
-
-        // sum the values for male and female together
-        var newContainer = d3.nest()
-                        .key(function(d) { return d.country; })
-                        .rollup(function(v) { return {
-                          suicides_no: d3.sum(v, function(d) { return d.suicides_no; }),
-                          suicides_per_10000: d3.sum(v, function(d) { return d.suicides_per_10000; }),
-                          percentage_suicides: d3.sum(v, function(d) { return d.percentage_suicides; }),
-                          population: d3.sum(v, function(d) { return d.population; })
-                         }; })
-                        .entries(container);
-
-        // get the data in the right format
-        var formatData = [];
-        for (var j in newContainer){
-          var values = newContainer[j].value;
-          values.country = newContainer[j].key;
-          formatData.push(values);
-        }
-        update(response, formatData, color, tooltip);
+      value = this.getAttribute("value");
+      id = this.getAttribute("id");
+      filter(response, allData, filteredData, color, tooltip)
+      if(id === "sunburstDropdown"){
+        var sunburstFilter = filterSunburst(allData, filteredData, value)
       }
-      else{
-        update(response, allData, color, tooltip);
-      }
-  });
+   });
 }

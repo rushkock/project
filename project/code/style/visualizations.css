@@ -106,7 +106,14 @@
 .dropdown {
   position: relative;
   /* top: 50px; */
-  left: 850px;
+  left: 750px;
+  display: inline-block;
+}
+
+.button {
+  position: absolute;
+  top: -80px;
+  left: 300px;
   display: inline-block;
 }
 

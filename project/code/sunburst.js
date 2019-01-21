@@ -182,3 +182,29 @@ function updateSunburst(data){
   d3.select(".sunburst").select("svg").remove();
   makeSunburst(data);
 }
+
+// this function filters the data when user choses an age
+function filterSunburst(allData, filteredData, value){
+  if (value === "50" || value === "25" || value === "10" && value != "all" && value != "allCountries"){
+    console.log(allData)
+    console.log("filtered")
+      console.log(filteredData)
+    data =  allData.sort(function(a,b){return b.suicides_per_10000-a.suicides_per_10000;});
+    sunburstData = [];
+    newSunburst = []
+    for (var i = 0; i < value; i++){
+      sunburstData.push(data[i].country)
+    }
+
+    for (var j in sunburstData){
+      for (var k in filteredData)
+         if (filteredData[k].country === sunburstData[j]){
+            newSunburst.push(filteredData[k])
+         }
+    }
+    updateSunburst(newSunburst)
+  }
+  else if (value === "allCountries") {
+    updateSunburst(filteredData)
+  }
+}

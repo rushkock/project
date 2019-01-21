@@ -66,3 +66,12 @@ I didn't like the sunburst so I decided to change the colors. Not sure if this m
 ![sunburst colors](doc/sunburst_colors.jpg)
 The progression of the design of the sunburst so far is seen in the picture.
 The new colors are colorblind sensitive.
+
+# day 10 (21 - 01 - 2018)
+I added a filter sunburst method.
+![Filtered sunburst](doc/filter_sunburst.jpg)
+My visualizations are mostly linked. When someone filters by age, and then changes the year the filter is remembered.
+I have 2 bugs to be fixed. When the sunburst is updated, then the year is changed if the user had a filter (such as 5 - 14 years), this filter is lost.
+Moreover, I need to remove countries that have a value smaller than 1 in the barchart.
+I also want to add another feature where filter by gender is possible.
+My code is a mess and needs to be reviewed as well.
