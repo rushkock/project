@@ -75,3 +75,6 @@ I have 2 bugs to be fixed. When the sunburst is updated, then the year is change
 Moreover, I need to remove countries that have a value smaller than 1 in the barchart.
 I also want to add another feature where filter by gender is possible.
 My code is a mess and needs to be reviewed as well.
+
+# day 11 (22 - 01 - 2018)
+Worked from home today.
