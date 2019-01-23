@@ -39,3 +39,31 @@ font-size: 18px
 #button{
   text-align: center;
 }
+
+/* FOOTER */
+.page-footer {
+  position:absolute;
+  background-color: #323232;
+  color: white;
+  top: 1000px;
+  width:100%;
+}
+
+.footer-copyright{
+  background-color: black;
+}
+
+h5 {
+  text-align: center;
+}
+
+.footerLine{
+  background-color: blue;
+  width: 100%;
+  height: 5px;
+}
+
+.uva{
+  height:30px;
+  width:30px;
+}

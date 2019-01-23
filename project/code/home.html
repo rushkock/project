@@ -7,6 +7,7 @@ bootstrap navbar -- https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp
 bootstrap cards -- https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_card_image&stacked=h
 chart images -- https://icons8.com/icons/set/favicon
 flower picture -- Ruchella kock
+other images: https://unsplash.com/photos/N9VsHXwWB-8
 -->
 
 <!DOCTYPE html>
@@ -38,6 +39,9 @@ flower picture -- Ruchella kock
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#cards">Story</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="visualizations.html">Visualizations</a>
           </li>
           <li class="nav-item">
@@ -46,40 +50,81 @@ flower picture -- Ruchella kock
         </ul>
       </nav>
 
-      <!-- Flower image and quote -->
-      <div style="text-align: center;">
-        <img class= "flower" src="../images/flower.jpg" alt="Flowers">
-        <h1 class= "quote"> "Suicide is a permanent solution to a temporary problem." </h1>
-        <p class= "author"> -Phil Donahue </p>
+
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../images/tombstone.jpg" alt="Tombstones" width="1100" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/flower1.jpg" alt="flowers" width="1100" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/tombs.jpg" alt="Tombstones" width="1100" height="500">
+          </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
       </div>
 
       <!-- Bootstrap cards -->
-      <div class="card1" style="width:400px">
-        <div class="card-body">
-          <h2 class="card-title">Problem</h2>
-          <img class="card-img-top" src="../images/chart.jpg" alt="Card image" style="width:100%">
-          <p class="card-text"> There is a lot of data and information about different mental health diseases. There are many papers describing prevalence rates of mental disorders (e.g. Anderson, Freedland, Clouse, & Lustman, 2001; Nock, et al., 2008). However, based on my experience these papers use tables instead of visualizations to show the data. Moreover, if visualizations are used it is complicated and academic as in the case with the paper by Nock and colleagues (2008). This website aims to provide clear visualizations for non academics who are interested in prevalence rates of suicide over the whole world.</p>
+      <div id="cards"></div>
+      <br><br>
+      <div>
+        <div class="card1" style="width:400px">
+          <div class="card-body">
+            <h2 class="card-title">Problem</h2>
+            <img class="card-img-top" src="../images/chart.jpg" alt="Card image" style="width:100%">
+            <p class="card-text"> There is a lot of data and information about different mental health diseases. There are many papers describing prevalence rates of mental disorders (e.g. Anderson, Freedland, Clouse, & Lustman, 2001; Nock, et al., 2008). However, based on my experience these papers use tables instead of visualizations to show the data. Moreover, if visualizations are used it is complicated and academic as in the case with the paper by Nock and colleagues (2008). This website aims to provide clear visualizations for non academics who are interested in prevalence rates of suicide over the whole world.</p>
+          </div>
+        </div>
+
+        <div class="card2" style="width:400px">
+          <div class="card-body">
+            <h2 class="card-title"> Solution </h2>
+            <img class="card-img-top" src="../images/piechart.jpg" alt="Card image" style="width:100%">
+            <p class="card-text"> I will provide clear visualizations (Namely a bar chart, heatmap and zoomable sunburst)
+              for the prevalence of suicide with data from the whole world.
+              It will have interactive components which can make the data clearer, understandable and perhaps more interesting for non-academics.</p>
+          </div>
+        </div>
+
+        <div class="card3" style="width:400px">
+          <div class="card-body" id="button">
+            <h2 class="card-title"> How to use </h2>
+            <img class="card-img-top" src="../images/playbutton.jpg" alt="Card image" style="width:100%">
+            <p class="card-text"> insert link to video</p>
+            <a href="#" class="btn btn-primary">Watch video</a>
+          </div>
         </div>
       </div>
 
-      <div class="card2" style="width:400px">
-        <div class="card-body">
-          <h2 class="card-title"> Solution </h2>
-          <img class="card-img-top" src="../images/piechart.jpg" alt="Card image" style="width:100%">
-          <p class="card-text"> I will provide clear visualizations (Namely a bar chart, heatmap and zoomable sunburst)
-            for the prevalence of suicide with data from the whole world.
-            It will have interactive components which can make the data clearer, understandable and perhaps more interesting for non-academics.</p>
-        </div>
-      </div>
+      <!-- Footer -->
+      <footer class="page-footer font-small unique-color-dark">
 
-      <div class="card3" style="width:400px">
-        <div class="card-body" id="button">
-          <h2 class="card-title"> How to use </h2>
-          <img class="card-img-top" src="../images/playbutton.jpg" alt="Card image" style="width:100%">
-          <p class="card-text"> insert link to video</p>
-          <a href="#" class="btn btn-primary">Watch video</a>
-        </div>
-      </div>
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">University of Amsterdam
+            <img class= "uva" src="../images/uva.jpg" alt="University of amsterdam Logo">
+            <a href="http://www.mprog.nl/">Minor programmeren</a>
+          </div>
+          <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
 
     </body>
 </html>

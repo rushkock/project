@@ -6,10 +6,22 @@ var margin = {top: 20, right: 0, bottom: 70, left: 130};
 var w = 500 - margin.left - margin.right;
 var h = 2500 - margin.top - margin.bottom;
 
+function removeZeros(data){
+  dataNoZero = []
+  for (var i in data){
+    if (data[i].suicides_per_10000 > 1){
+      dataNoZero.push(data[i])
+    }
+  }
+  return dataNoZero
+}
+
 function makeBar(response){
 
   var data = processDate(response[2], 2005);
+  // I choose to remove the values that are smaller than 1 because 0.something suicides does not mean much
   data =  data.sort(function(a,b){return b.suicides_per_10000-a.suicides_per_10000;});
+  data = removeZeros(data)
   var length = data.length;
 
   var yScale = d3.scaleBand()
@@ -124,6 +136,7 @@ function makeBar(response){
 // this function updates the data
 function updateBar(data, color) {
   data =  data.sort(function(a,b){return b.suicides_per_10000-a.suicides_per_10000;});
+  data = removeZeros(data)
 
   var xScale = d3.scaleLinear()
                  .domain([0, d3.max(data, function(d) { return d.suicides_per_10000;})])

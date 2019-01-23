@@ -78,3 +78,10 @@ My code is a mess and needs to be reviewed as well.
 
 # day 11 (22 - 01 - 2018)
 Worked from home today.
+Fixed 2 bugs with the interactions. And tried out some new code to possibly improve my current code.
+
+# day 12 ( 23 - 01 - 2018)
+Removed values with zeroes in the barchart because values with zeroes are not very clear in the chart(see image). Moreover, 0.2 suicides does not mean anything.
+![Barchart with and without zero](doc/barchart_with_zero's.jpg)
+Added a filter by gender option
+![Filter by gender](doc/filter_by_gender.jpg)

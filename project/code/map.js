@@ -145,7 +145,7 @@ function makeSlider(data, color, tooltip){
                        var newData = processDate(data[2], d3.timeFormat('%Y')(sliderTime.value()));
                        var filteredData = processDate(data[3], d3.timeFormat('%Y')(sliderTime.value()));
                        var ageFiltered = filter(data, newData, filteredData, color, tooltip);
-                       filterSunburst(newData, filteredData, value)
+                       filterSunburst(newData, filteredData, sunburstValue)
 
                        update(data, newData, ageFiltered, color, tooltip);
                        updateBar(newData, color);
@@ -240,13 +240,17 @@ function subBoxMap(data){
 }
 
 
+
 // this function updates the data of the map, changes the colors and the tooltip
 function update(response, newData, filtered, color, tooltip){
-  if (value === "all"){
+  if (ageValue === "all"){
     var data = newData;
   }
-  else if (value === "50" || value === "25" || value === "10" || value === "allCountries"){
-    var data = newData
+  else if (ageValue != "all"){
+    var data = filtered;
+  }
+  else if (genderValue === "all"){
+    var data = newData;
   }
   else {
     var data = filtered;
@@ -311,6 +315,7 @@ function update(response, newData, filtered, color, tooltip){
           });
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////        Functions that process data    //////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -335,22 +340,32 @@ function getSelectedState(d, pooledData){
    });
    return selectedState;
 }
-var value = "all";
+var sunburstValue = "10";
+var ageValue = "all";
+var genderValue = "all";
 var id = "";
 
 // this function filters the data when user choses an age
 function filter(response, allData, filteredData, color, tooltip){
     var formatData = [];
-    if (value != "all" && id === "age"){
+    if (genderValue != "all" || ageValue != "all" && id != "sunburstDropdown"){
       var data = filteredData;
       // get for each country the 2 entries (male and female) for that age
       var container = [];
-      for (var i in data){
-        if (data[i].age === value){
-          container.push(data[i]);
+      if (id === "age"){
+          for (var i in data){
+            if (data[i].age === ageValue){
+              container.push(data[i]);
+            }
+          }
+      }
+      else {
+        for (var i in data){
+          if (data[i].sex === genderValue){
+            container.push(data[i]);
+          }
         }
       }
-
       // sum the values for male and female together
       var newContainer = d3.nest()
                       .key(function(d) { return d.country; })
@@ -373,6 +388,7 @@ function filter(response, allData, filteredData, color, tooltip){
     else if(id === "age"){
       update(response, allData, allData, color, tooltip);
     }
+    console.log(formatData)
     return formatData;
 }
 
@@ -380,11 +396,25 @@ function onclick(response, allData, filteredData, color, tooltip){
   d3.selectAll(".dropdown-item")
    .on("click", function()
    {
-      value = this.getAttribute("value");
       id = this.getAttribute("id");
-      filter(response, allData, filteredData, color, tooltip)
       if(id === "sunburstDropdown"){
-        var sunburstFilter = filterSunburst(allData, filteredData, value)
+        sunburstValue = this.getAttribute("value");
+        var sunburstFilter = filterSunburst(allData, filteredData, sunburstValue)
+        if (sunburstValue != "allCountries"){
+          d3.select(".sunburstFilter").text("Top " + sunburstValue)
+        }
+        else{
+          d3.select(".sunburstFilter").text("All countries")
+        }
       }
+      else if (id === "gender"){
+        genderValue = this.getAttribute("value");
+        d3.select(".filter").text(genderValue)
+      }
+      else {
+        ageValue = this.getAttribute("value");
+        d3.select(".filter").text(ageValue)
+      }
+      filter(response, allData, filteredData, color, tooltip)
    });
 }

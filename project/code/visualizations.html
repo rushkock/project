@@ -55,6 +55,9 @@ Description: This page shows the visualizations (map, barchart and sunburst)
           <li class="nav-item">
             <a class="nav-link" href="home.html">Home</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="home.html#cards">Story</a>
+          </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">Visualizations</a>
           </li>
@@ -76,6 +79,13 @@ Description: This page shows the visualizations (map, barchart and sunburst)
             </div>
           </li>
           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Filter by gender</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" id="gender" value="female" href="#">Female</a>
+              <a class="dropdown-item" id="gender" value="male" href="#">Male</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Filter sunburst</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" id="sunburstDropdown" value="allCountries" href="#">All</a>
@@ -87,14 +97,6 @@ Description: This page shows the visualizations (map, barchart and sunburst)
         </ul>
       </nav>
 
-      <!-- NOTE: DECIDE ON WHETHER THIS SHOULD BE ON THE PAGE -->
-      <!-- Flower image and quote -->
-      <!-- <div style="text-align: center;">
-        <img class= "flower2" src="../images/flower2.jpg" alt="Flowers">
-        <h1 class= "quote"> “People rarely bring flowers to a suicide.” </h1>
-        <p class= "author" style= "left:60%"> -Jennifer Niven </p>
-      </div> -->
-
       <!-- div for the SVGs -->
       <div class = "barChart">
 
@@ -104,9 +106,18 @@ Description: This page shows the visualizations (map, barchart and sunburst)
       </div>
       <div class= "boxMap">
         <h1> Number of suicides <br> in the world </h1>
-        <p> In this map you can see the number of suicides per country. <br>
-          The darker the country, the higher the number of suicides
+        <p> The world map shows the number of suicides per 10000 inhabitants. <br>
+          The darker the country, the higher the number of suicides.
+          When hovering over a land all the numbers can be seen in the box here under.
+          The map can also be filtered with the dropdowns above. It can be filtered based on age group or gender.
         </p>
+        <div class= "countryStatistics">
+          <div class= "label">Chosen filter: </div>
+          <div class="filter val">all</div>
+          <br>
+          <div class= "label">Sunburst filter: </div>
+          <div class="sunburstFilter val">Top 10</div>
+        </div>
         <div class= subBoxMap>
           <div class="subBoxMapCountry">
             <h1></h1>
@@ -139,5 +150,18 @@ Description: This page shows the visualizations (map, barchart and sunburst)
       </div>
       <div class = "sunburst">
       </div>
+
+      <!-- Footer -->
+      <footer class="page-footer font-small unique-color-dark">
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">University of Amsterdam
+            <img class= "uva" src="../images/uva.jpg" alt="University of amsterdam Logo">
+            <a href="http://www.mprog.nl/">Minor programmeren</a>
+          </div>
+          <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
     </body>
 </html>
