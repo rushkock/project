@@ -3,7 +3,7 @@
 Ruchella Kock (rushkock on github) :octocat:
 
 ## Github Pages
-[Link to Github Pages](https://rushkock.github.io/project/)
+[Link to Github Pages](https://rushkock.github.io/project/project/code/home.html)
 
 ## Summary
 This website will make a heat map, bar chart and zoomable sunburst diagram in order to help visualize the prevalence of suicide over the world for non-academics.
