@@ -184,11 +184,12 @@ function updateSunburst(data){
 }
 
 // this function filters the data when user choses an age
-function filterSunburst(allData, filteredData, value){
+function filterSunburst(allData, filteredData, value, year){
   if (value != "allCountries"){
-    console.log(allData)
-    console.log("filtered")
-      console.log(filteredData)
+    // do this because 2016 has less than 25 values thus only top 10 or all can be seen 
+    if (year === "2016"){
+      value = "10"
+    }
     data =  allData.sort(function(a,b){return b.suicides_per_10000-a.suicides_per_10000;});
     sunburstData = [];
     newSunburst = []

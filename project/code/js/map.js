@@ -29,12 +29,12 @@ function makeMap(response){
  var seven = (max-min)/7;
 
   var color = d3.scaleLinear()
-                .domain([min, min+seven,min+seven*2,min+seven*3,min+seven*4,min+seven*5,min+seven*6, max])
+                .domain([min, min+seven, min+seven*2, min+seven*3, min+seven*4, min+seven*5, min+seven*6, max])
                 .range(["#d0d1e6", "#a6bddb" ,"#74a9cf", "#3690c0", "#0570b0", "#045a8d", "#023858"]);
 
   var path = d3.geoPath();
   var year = makeSlider(response, color, tooltip);
-  onclick(response, pooledData, filterData, color, tooltip);
+  onclick(response, pooledData, filterData, color, tooltip, year);
   var svg = d3.select(".worldMap")
               .append("svg")
               .attr("width", width)
@@ -78,7 +78,7 @@ function makeMap(response){
                   .style("stroke","black")
                   .style("stroke-width", 5);
 
-          var selectedState = getSelectedStateF(d, pooledData, "country", "properties.name");
+          var selectedState = getSelectedCountry(d, pooledData, "country", "properties", "name");
           subBoxMap(selectedState);
           if (selectedState === "") {
             d3.select(".noData")
@@ -121,7 +121,7 @@ function makeMap(response){
      .attr("class", "names")
      .attr("d", path);
 
-     makeLegend(svg, color, width, max);
+      makeLegend(".boxMap", color, min, max, 15, "#f1eef6", "#023858");
 }
 
 // this function makes the slider for the years and it also returns which year is chosen
@@ -145,7 +145,8 @@ function makeSlider(data, color, tooltip){
                        var newData = processDate(data[2], d3.timeFormat('%Y')(sliderTime.value()));
                        var filteredData = processDate(data[3], d3.timeFormat('%Y')(sliderTime.value()));
                        var ageFiltered = filter(data, newData, filteredData, color, tooltip);
-                       filterSunburst(newData, filteredData, sunburstValue)
+
+                       filterSunburst(newData, filteredData, sunburstValue, d3.timeFormat('%Y')(sliderTime.value()))
 
                        update(data, newData, ageFiltered, color, tooltip);
                        updateBar(newData, color);
@@ -165,63 +166,6 @@ function makeSlider(data, color, tooltip){
   return year;
 }
 
-// this functions makes the legends and writes the text
-// source : https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient.html
-function makeLegend(gr, color, w, max)
-{
-  var width = 400;
-  var height = 200;
-  var defs = d3.select(".boxMap")
-               .append("defs");
-
- var svg = defs.append("svg")
-               .attr("width", width)
-               .attr("height", height)
-               .append('g')
-               .attr('class', 'legend');
-
-
-  var linearGradient = svg.append("linearGradient")
-                           .attr("id", "linear-gradient");
-
-      // chosen horizontal gradient
-      linearGradient.attr("x1", "0%")
-                    .attr("y1", "0%")
-                    .attr("x2", "100%")
-                    .attr("y2", "0%");
-
-      // set the color for the start
-      linearGradient.append("stop")
-                    .attr("offset", "0%")
-                    .attr("stop-color", "#f1eef6");
-
-      // set the color for the end
-      linearGradient.append("stop")
-                    .attr("offset", "100%")
-                    .attr("stop-color", "#045a8d");
-
-    // draw the rectangle and fill with gradient
-    svg.append("rect")
-       .attr("width", 300)
-       .attr("x", 30)
-       .attr("y", 15)
-       .attr("height", 20)
-       .style("fill", "url(#linear-gradient)");
-
-    //Set scale for x-axis
-    var xScale = d3.scaleLinear()
-    	             .range([0, 300])
-    	             .domain([0, max]);
-
-    // make xAxis
-    var xAxis = d3.axisBottom(xScale);
-
-    svg.append("g")
-       .attr("class", "x axis")
-       .attr("transform", "translate("+ 30 + "," + 35 + ")")
-       .call(xAxis);
-}
-
 // this function writes the text in the subBox (small box with borders on the right of the page)
 function subBoxMap(data){
     var box = d3.select(".subBoxMap");
@@ -238,7 +182,6 @@ function subBoxMap(data){
       .text(data.population);
    }
 }
-
 
 
 // this function updates the data of the map, changes the colors and the tooltip
@@ -272,7 +215,7 @@ function update(response, newData, filtered, color, tooltip){
                       .style("stroke","black")
                       .style("stroke-width", 5);
 
-              var selectedState = getSelectedStateF(d, data, "country", "properties.name");;
+              var selectedState = getSelectedCountry(d, data, "country", "properties", "name");;
               subBoxMap(selectedState);
               if (selectedState === "") {
                 d3.select(".noData")
@@ -316,16 +259,6 @@ function update(response, newData, filtered, color, tooltip){
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////        Functions that process data    //////////////////////
 //////////////////////////////////////////////////////////////////////////////
-
-
-// this functions gets the states that the mouse is hovering over
-function getSelectedStateF(d, pooledData){
-   var selectedState = "";
-   pooledData.forEach(function(e) {
-     if (e.country == d.properties.name){ selectedState = e;}
-   });
-   return selectedState;
-}
 
 
 var sunburstValue = "10";
@@ -381,14 +314,14 @@ function filter(response, allData, filteredData, color, tooltip){
     return formatData;
 }
 
-function onclick(response, allData, filteredData, color, tooltip){
+function onclick(response, allData, filteredData, color, tooltip, year){
   d3.selectAll(".dropdown-item")
    .on("click", function()
    {
       idCheck = this.getAttribute("id");
       if(idCheck === "sunburstDropdown"){
         sunburstValue = this.getAttribute("value");
-        var sunburstFilter = filterSunburst(allData, filteredData, sunburstValue);
+        var sunburstFilter = filterSunburst(allData, filteredData, sunburstValue, year);
         if (sunburstValue != "allCountries"){
           d3.select(".sunburstFilter").text("Top " + sunburstValue);
         }

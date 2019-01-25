@@ -36,6 +36,18 @@ font-size: 18px
   left: 50px;
 }
 
+.card14 {
+  position: absolute;
+  top: 1050px;
+  left: 50px;
+}
+
+.card13 {
+  position: absolute;
+  top: 1350px;
+  left: 50px;
+}
+
 #button{
   text-align: center;
 }
@@ -45,7 +57,7 @@ font-size: 18px
   position:absolute;
   background-color: #323232;
   color: white;
-  top: 1000px;
+  top: 1600px;
   width:100%;
 }
 
