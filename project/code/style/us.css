@@ -9,6 +9,20 @@
   pointer-events: none;
 }
 
+.uva{
+  height:30px;
+  width:30px;
+}
+
+.footer-copyright{
+  background-color: black;
+  color: white;
+}
+
+h5 {
+  text-align: center;
+}
+
 .USmap {
   position: relative;
   top: 50px;
