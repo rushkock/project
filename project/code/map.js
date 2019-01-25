@@ -78,7 +78,7 @@ function makeMap(response){
                   .style("stroke","black")
                   .style("stroke-width", 5);
 
-          var selectedState = getSelectedState(d, pooledData);
+          var selectedState = getSelectedStateF(d, pooledData, "country", "properties.name");
           subBoxMap(selectedState);
           if (selectedState === "") {
             d3.select(".noData")
@@ -86,7 +86,7 @@ function makeMap(response){
 
             tooltip.html("<div id='thumbnail'><span> No Data")
                    .style("left", (d3.event.pageX) + "px")
-                   .style("top", (d3.event.pageY) + "px");
+                   .style("top", (d3.event.pageY) +  "px");
           }
           else {
             d3.select(".subBoxMap").selectAll("*").style("visibility", "visible");
@@ -94,7 +94,7 @@ function makeMap(response){
                          selectedState.country + "<br> Suicides per 10000: " +
                          Math.round(selectedState.suicides_per_10000))
                    .style("left", (d3.event.pageX) + "px")
-                   .style("top", (d3.event.pageY) + "px");
+                   .style("top", (d3.event.pageY)  + "px");
             }
 
           d3.select(this)
@@ -243,16 +243,12 @@ function subBoxMap(data){
 
 // this function updates the data of the map, changes the colors and the tooltip
 function update(response, newData, filtered, color, tooltip){
-  if (ageValue === "all"){
-    var data = newData;
-  }
-  else if (ageValue != "all"){
-    var data = filtered;
-  }
-  else if (genderValue === "all"){
+  if (value === "all"){
+    console.log("first if")
     var data = newData;
   }
   else {
+    console.log("filtered if")
     var data = filtered;
   }
 
@@ -269,13 +265,14 @@ function update(response, newData, filtered, color, tooltip){
             return foundColor;
           })
           .on('mouseover',function(d){
+            console.log(d);
               tooltip.transition()
                       .duration(10)
                       .style("opacity", 1)
                       .style("stroke","black")
                       .style("stroke-width", 5);
 
-              var selectedState = getSelectedState(d, data);
+              var selectedState = getSelectedStateF(d, data, "country", "properties.name");;
               subBoxMap(selectedState);
               if (selectedState === "") {
                 d3.select(".noData")
@@ -320,48 +317,41 @@ function update(response, newData, filtered, color, tooltip){
 /////////////////        Functions that process data    //////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-// this function returns the data for the chosen year
-function processDate(data, year){
-  var date = [];
-  var yearF = parseFloat(year);
-  for (var i in data){
-    if (data[i].year === yearF){
-      date.push(data[i]);
-    }
-  }
-  return date;
-}
 
 // this functions gets the states that the mouse is hovering over
-function getSelectedState(d, pooledData){
+function getSelectedStateF(d, pooledData){
    var selectedState = "";
    pooledData.forEach(function(e) {
      if (e.country == d.properties.name){ selectedState = e;}
    });
    return selectedState;
 }
+
+
 var sunburstValue = "10";
-var ageValue = "all";
-var genderValue = "all";
+var value = "all";
+var idCheck = "";
 var id = "";
+
+
 
 // this function filters the data when user choses an age
 function filter(response, allData, filteredData, color, tooltip){
     var formatData = [];
-    if (genderValue != "all" || ageValue != "all" && id != "sunburstDropdown"){
+    if (value != "all" && id != ""){
       var data = filteredData;
       // get for each country the 2 entries (male and female) for that age
       var container = [];
       if (id === "age"){
           for (var i in data){
-            if (data[i].age === ageValue){
+            if (data[i].age === value){
               container.push(data[i]);
             }
           }
       }
       else {
         for (var i in data){
-          if (data[i].sex === genderValue){
+          if (data[i].sex === value){
             container.push(data[i]);
           }
         }
@@ -385,10 +375,9 @@ function filter(response, allData, filteredData, color, tooltip){
       }
       update(response, allData, formatData, color, tooltip);
     }
-    else if(id === "age"){
+    else if(value === "all" && id != ""){
       update(response, allData, allData, color, tooltip);
     }
-    console.log(formatData)
     return formatData;
 }
 
@@ -396,25 +385,27 @@ function onclick(response, allData, filteredData, color, tooltip){
   d3.selectAll(".dropdown-item")
    .on("click", function()
    {
-      id = this.getAttribute("id");
-      if(id === "sunburstDropdown"){
+      idCheck = this.getAttribute("id");
+      if(idCheck === "sunburstDropdown"){
         sunburstValue = this.getAttribute("value");
-        var sunburstFilter = filterSunburst(allData, filteredData, sunburstValue)
+        var sunburstFilter = filterSunburst(allData, filteredData, sunburstValue);
         if (sunburstValue != "allCountries"){
-          d3.select(".sunburstFilter").text("Top " + sunburstValue)
+          d3.select(".sunburstFilter").text("Top " + sunburstValue);
         }
         else{
-          d3.select(".sunburstFilter").text("All countries")
+          d3.select(".sunburstFilter").text("All countries");
         }
       }
-      else if (id === "gender"){
-        genderValue = this.getAttribute("value");
-        d3.select(".filter").text(genderValue)
+      else if (idCheck === "gender"){
+        value = this.getAttribute("value");
+        id = "gender";
+        d3.select(".filter").text(value);
       }
       else {
-        ageValue = this.getAttribute("value");
-        d3.select(".filter").text(ageValue)
+        value = this.getAttribute("value");
+        id = "age";
+        d3.select(".filter").text(value);
       }
-      filter(response, allData, filteredData, color, tooltip)
+      filter(response, allData, filteredData, color, tooltip);
    });
 }

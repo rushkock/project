@@ -216,15 +216,3 @@ function updateBar(data, color) {
                    .style("display", "none"); //The tooltip disappears
          });
 }
-
-// this function returns the data for the chosen year
-function processDate(data, year){
-  var date = [];
-  var yearF = parseFloat(year);
-  for (var i in data){
-    if (data[i].year === yearF){
-      date.push(data[i]);
-    }
-  }
-  return date;
-}

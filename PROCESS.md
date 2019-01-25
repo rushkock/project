@@ -85,3 +85,8 @@ Removed values with zeroes in the barchart because values with zeroes are not ve
 ![Barchart with and without zero](doc/barchart_with_zero's.jpg)
 Added a filter by gender option
 ![Filter by gender](doc/filter_by_gender.jpg)
+
+# day 13 (24 - 01 - 2018)
+Hackaton
+
+# day 14 (25 - 01 - 2018)

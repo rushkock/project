@@ -185,7 +185,7 @@ function updateSunburst(data){
 
 // this function filters the data when user choses an age
 function filterSunburst(allData, filteredData, value){
-  if (value === "50" || value === "25" || value === "10" && value != "all" && value != "allCountries"){
+  if (value != "allCountries"){
     console.log(allData)
     console.log("filtered")
       console.log(filteredData)
@@ -204,7 +204,7 @@ function filterSunburst(allData, filteredData, value){
     }
     updateSunburst(newSunburst)
   }
-  else if (value === "allCountries") {
+  else {
     updateSunburst(filteredData)
   }
 }

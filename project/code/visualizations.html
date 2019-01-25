@@ -28,6 +28,7 @@ Description: This page shows the visualizations (map, barchart and sunburst)
         <script src="barchart.js"></script>
         <script src="map.js"></script>
         <script src="practice.js"></script>
+        <script src="usmap.js"></script>
 
 
         <!-- D3 links -->
@@ -81,6 +82,7 @@ Description: This page shows the visualizations (map, barchart and sunburst)
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Filter by gender</a>
             <div class="dropdown-menu">
+              <a class="dropdown-item" id="gender" value="all" href="#">All</a>
               <a class="dropdown-item" id="gender" value="female" href="#">Female</a>
               <a class="dropdown-item" id="gender" value="male" href="#">Male</a>
             </div>
@@ -88,10 +90,10 @@ Description: This page shows the visualizations (map, barchart and sunburst)
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Filter sunburst</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" id="sunburstDropdown" value="allCountries" href="#">All</a>
-              <a class="dropdown-item" id="sunburstDropdown" value="50" href="#">top 50</a>
-              <a class="dropdown-item" id="sunburstDropdown" value="25" href="#">top 25</a>
-              <a class="dropdown-item" id="sunburstDropdown" value="10" href="#">top 10</a>
+              <a class="dropdown-item" id="sunburstDropdown" value="allCountries" href="#sunburst">All</a>
+              <a class="dropdown-item" id="sunburstDropdown" value="50" href="#sunburst">top 50</a>
+              <a class="dropdown-item" id="sunburstDropdown" value="25" href="#sunburst">top 25</a>
+              <a class="dropdown-item" id="sunburstDropdown" value="10" href="#sunburst">top 10</a>
             </div>
           </li>
         </ul>
@@ -99,9 +101,6 @@ Description: This page shows the visualizations (map, barchart and sunburst)
 
       <!-- div for the SVGs -->
       <div class = "barChart">
-
-      </div>
-      <div class = "practice">
 
       </div>
       <div class= "boxMap">
@@ -148,8 +147,11 @@ Description: This page shows the visualizations (map, barchart and sunburst)
           <div class="col-sm"><div id="slider-time"></div></div>
         </div>
       </div>
-      <div class = "sunburst">
+      <div class = "sunburst" id = "sunburst">
       </div>
+      <div class = "USmap" id = "sunburst">
+      </div>
+
 
       <!-- Footer -->
       <footer class="page-footer font-small unique-color-dark">
