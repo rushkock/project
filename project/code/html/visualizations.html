@@ -22,17 +22,15 @@ Description: This page shows the visualizations (map, barchart and sunburst)
         <link rel="stylesheet" href="../style/sources.css">
         <link rel="stylesheet" href="../style/visualizations.css">
 
+        <!-- D3 links -->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="../js/topojson.js"></script>
+
         <!-- JS script for charts -->
         <script src="../js/main.js"></script>
         <script src="../js/sunburst.js"></script>
         <script src="../js/barchart.js"></script>
         <script src="../js/map.js"></script>
-
-
-        <!-- D3 links -->
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="../js/topojson.js"></script>
-        <!-- <script src="http://d3js.org/topojson.v1.min.js"></script> -->
 
 
         <!-- slider -->
@@ -46,10 +44,7 @@ Description: This page shows the visualizations (map, barchart and sunburst)
     <body>
       <!-- Bootstrap Nav-bar -->
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <!-- Brand/logo -->
         <a class="navbar-brand" href="#">Suicide Rate</a>
-
-        <!-- links -->
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="home.html">Home</a>
@@ -101,68 +96,59 @@ Description: This page shows the visualizations (map, barchart and sunburst)
       </nav>
 
       <!-- div for the SVGs -->
-      <div class = "barChart">
-
-      </div>
-      <div class= "boxMap">
-        <h1> Number of suicides <br> in the world </h1>
-        <p> The world map shows the number of suicides per 10000 inhabitants. <br>
-          The darker the country, the higher the number of suicides.
-          When hovering over a land all the numbers can be seen in the box here under.
-          The map can also be filtered with the dropdowns above. It can be filtered based on age group or gender.
-        </p>
-        <div class= "countryStatistics">
-          <div class= "label">Chosen filter: </div>
-          <div class="filter val">all</div>
-          <br>
-          <div class= "label">Sunburst filter: </div>
-          <div class="sunburstFilter val">Top 10</div>
-        </div>
-        <div class= subBoxMap>
-          <div class="subBoxMapCountry">
-            <h1></h1>
-          </div>
-          <div class = "countryStatistics">
-            <div class= "label"> Suicides per 10000: </div>
-            <div class="subBoxMapSuicidesPer10000 val"></div>
-          </div>
-          <div class = "countryStatistics">
-            <div class= "label"> Percentage of suicides: </div>
-            <div class="subBoxMapSuicidesPercentage val"></div>
-          </div>
-          <div class = "countryStatistics">
-            <div class= "label"> Suicides:  </div>
-            <div class="subBoxMapSuicides val"></div>
-          </div>
-          <br>
-          <div class = "countryStatistics">
-            <div class= "label"> Total population: </div>
-            <div class="subBoxMapPopulation val"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class = "worldMap">
+      <div class="barChart"></div>
+      <div class="worldMap">
         <div class="row align-items-center" id="slider">
           <div class="col-sm-2"><p id="value-time"></p></div>
           <div class="col-sm"><div id="slider-time"></div></div>
         </div>
       </div>
-      <div class = "sunburst" id = "sunburst">
+      <div class="sunburst" id="sunburst"></div>
+
+      <!-- Add a box next to the map -->
+      <div class="boxMap">
+        <h1> Number of suicides <br> in the world </h1>
+        <p> The world map shows the number of suicides per 10000 inhabitants. <br>
+          The darker the country, the higher the number of suicides.
+          When hovering over a land all the numbers can be seen in the box here under.
+          The map can also be filtered with the dropdowns above. It can be filtered
+          based on age group or gender. </p>
+        <div class="countryStatistics">
+          <div class="label">Chosen filter: </div>
+          <div class="filter val">all</div>
+          <br>
+          <div class="label">Sunburst filter: </div>
+          <div class="sunburstFilter val">Top 10</div>
+        </div>
+        <div class="subBoxMap">
+          <div class="subBoxMapCountry">
+            <h1></h1>
+          </div>
+          <div class="countryStatistics">
+            <div class="label"> Suicides per 10000: </div>
+            <div class="subBoxMapSuicidesPer10000 val"></div>
+          </div>
+          <div class="countryStatistics">
+            <div class="label"> Percentage of suicides: </div>
+            <div class="subBoxMapSuicidesPercentage val"></div>
+          </div>
+          <div class="countryStatistics">
+            <div class="label"> Suicides: </div>
+            <div class="subBoxMapSuicides val"></div>
+          </div>
+          <br>
+          <div class="countryStatistics">
+            <div class="label"> Total population: </div>
+            <div class="subBoxMapPopulation val"></div>
+          </div>
+        </div>
       </div>
 
-
-      <!-- Footer -->
       <footer class="page-footer font-small unique-color-dark">
-
-          <!-- Copyright -->
           <div class="footer-copyright text-center py-3">University of Amsterdam
-            <img class= "uva" src="../../images/uva.jpg" alt="University of amsterdam Logo">
+            <img class="uva" src="../../images/uva.jpg" alt="University of amsterdam Logo">
             <a href="http://www.mprog.nl/">Minor programmeren</a>
           </div>
-          <!-- Copyright -->
-
-        </footer>
-        <!-- Footer -->
+      </footer>
     </body>
 </html>

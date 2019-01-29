@@ -1,35 +1,34 @@
-/* Ruchella Kock
-12460796 */
-.uva{
-  height:30px;
-  width:30px;
-}
+/*
+Ruchella Kock
+12460796
+Description: This file contain CSS for the Home page of the website
+(linked to home.html)
+Carousel
+source: https://www.w3schools.com/bootstrap/bootstrap_carousel.asp
+Cards
+source: https://www.w3schools.com/w3css/w3css_cards.asp
+*/
+
+/*  ////////////////////////////////////////////////////////////////////////
+////////////////////////////// PICTURE ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////  */
+
 /* Make the image fully responsive */
-  .carousel-inner img {
-      width: 100%;
-      height: 780px;
-  }
-.flower {
-  position: relative;
-  top: -450px;
-  left: 0px;
-  width:100%;
-  height:800px;
+.carousel-inner img {
+    width: 100%;
+    height: 780px;
 }
 
-.quote {
-  position: absolute;
-  color: white;
-  top: 150px;
-  left: 20%;
-}
-.author {
-  position: absolute;
-  color: white;
-  top: 210px;
-  left: 75%;
+/*  ////////////////////////////////////////////////////////////////////////
+//////////////////////////////   CARDS  ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////  */
+
+/* Scroll to cards */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Set position of cards */
 .card1 {
   position: absolute;
   top: 810px;
@@ -46,23 +45,25 @@
   top: 810px;
   left: 1050px;
 }
+
 p, .card-title {
   text-align: center
 }
 
-#button{
+#button {
   text-align: center;
 }
 
-/* FOOTER */
+
+/*  ////////////////////////////////////////////////////////////////////////
+//////////////////////////////  FOOTER  ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////  */
+
+/* Set position of footer */
 .page-footer {
-  position:absolute;
+  position: absolute;
   background-color: black;
   color: white;
-  top: 1550px;
-  width:100%;
-}
-
-html {
-  scroll-behavior: smooth;
+  top: 1450px;
+  width: 100%;
 }

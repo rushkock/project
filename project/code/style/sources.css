@@ -1,30 +1,54 @@
-/* Ruchella Kock
-12460796 */
+/*
+Ruchella Kock
+12460796
+Description: This file contain CSS for the Info page of the website
+(linked to sources.html)
+Cards
+source: https://www.w3schools.com/w3css/w3css_cards.asp
+Footer
+source: https://mdbootstrap.com/docs/jquery/navigation/footer/#purplepanel
+*/
 
+/*  ////////////////////////////////////////////////////////////////////////
+////////////////////////////// PICTURES ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////  */
 .flower2 {
   position: relative;
   top: -450px;
   left: 0px;
-  width:100%;
-  height:800px;
+  width: 100%;
+  height: 800px;
 }
 
-.dataInfo {
-height: 300px;
-width: 100%;
-background-color: #bae4bc;
-}
-
-.paragraphs {
-text-align: center;
-height: 200px;
-width: 1000px;
-font-size: 18px
-}
 .img-fluid {
-  width:375px;
-  height:300px;
+  width: 375px;
+  height: 300px;
 }
+
+.logo {
+  height: 200px;
+  width: 600px;
+}
+
+.quote {
+  position: absolute;
+  color: white;
+  top: 150px;
+  left: 20%;
+}
+
+.author {
+  position: absolute;
+  color: white;
+  top: 210px;
+  left: 75%;
+}
+
+/*  ////////////////////////////////////////////////////////////////////////
+//////////////////////////////   CARDS  ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////  */
+
+/* set position of cards */
 .card11 {
   position: absolute;
   top: 400px;
@@ -37,32 +61,36 @@ font-size: 18px
   left: 50px;
 }
 
-.card14 {
+.card13 {
   position: absolute;
   top: 1000px;
   left: 50px;
 }
 
-.card13 {
+.card14 {
   position: absolute;
-  top: 1400px;
+  top: 1300px;
   left: 50px;
 }
 
-#button{
+#button {
   text-align: center;
 }
 
-/* FOOTER */
+/*  ////////////////////////////////////////////////////////////////////////
+//////////////////////////////  FOOTER  ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////  */
+
+/* Position of footer */
 .page-footer {
-  position:absolute;
+  position: absolute;
   background-color: #323232;
   color: white;
-  top: 1650px;
-  width:100%;
+  top: 1550px;
+  width: 100%;
 }
 
-.footer-copyright{
+.footer-copyright {
   background-color: black;
 }
 
@@ -70,18 +98,15 @@ h5 {
   text-align: center;
 }
 
-.footerLine{
+/* Blue line on top of footer */
+.footerLine {
   background-color: blue;
   width: 100%;
   height: 5px;
 }
 
-.uva{
-  height:30px;
-  width:30px;
-}
-
-.who{
-  height:200px;
-  width:600px;
+/* University of Amsterdam Logo in the footer */
+.uva {
+  height: 30px;
+  width: 30px;
 }
