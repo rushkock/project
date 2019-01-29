@@ -45,10 +45,19 @@ The sunburst:
 As it is zoomable the user can click on any part of it and it will zoom in on that area
 ![example zoom](doc/exampleZoom.jpg)
 
+## US mental health
+The US mental health page contains 2 maps of the United States
+The first map visualizes suicidal thoughts in each state. On hover the percentage and confidence intervals are shown in the box next to the map.
+![Us map](doc/usmap1.jpg)
+The second map shows major depressive disorder which is a disorder that may lead to suicide. On hover it shows the percentage in the box
+![Us map](doc/usmap1.jpg)
 
 ## Data Information
-The information tab contains information about the data sets used and additional contact information.
+The information tab contains information about the data sets used.
 ![info page](doc/info.jpg)
+
+It also contains additional contact information in the footer.
+![Footer](doc/footer.jpg)
 
 ### Link to data sets
 [WHO suicide statistics](https://www.kaggle.com/szamil/who-suicide-statistics)

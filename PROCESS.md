@@ -95,7 +95,7 @@ Which included a whole new page. With 2 new data sets.
 This is very similar to my linked view assignment. I decided to add them because it provides more mental health visualizations related to suicide but not the same. It offers a zoomed view of these data in one country, as opposed to the whole world.
 The first map shows suicidal thoughts.
 ![Us map](doc/usmap1.jpg)
-The second map shows major depressive disorder which a disorder that may lead to suicide.
+The second map shows major depressive disorder which is a disorder that may lead to suicide.
 ![Us map](doc/usmap1.jpg)
 I also added more information about the new data set on the info page
 ![Info page](doc/infoUSdata.jpg)
