@@ -62,7 +62,8 @@ It also contains additional contact information in the footer.
 
 ### Link to data sets
 - [WHO suicide statistics](https://www.kaggle.com/szamil/who-suicide-statistics)
-Transformations: remove outliers and remove countries with no data
+
+Transformations: removed outliers and removed countries with no data
 - [US suicidal thoughts](https://data.world/samhsa/serious-thoughts-of-suicide)
 - [US depression statistics](https://data.world/samhsa/major-depressive-episode)
 
