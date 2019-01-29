@@ -9,7 +9,7 @@ Ruchella Kock (rushkock on github) :octocat:
 This website contains 5 visualizations (3 maps, a bar chart and a zoomable sunburst diagram). Its purpose is to visualize the prevalence of suicide over the world for non-academics.
 
 ## Home page
-When website is loaded a view images are shown with quotes to give hope against suicide.
+When the website is loaded a few images are shown with quotes to give hope against suicide.
 ![Home page](doc/homePage.jpg)
 ### Story
 The story contains information about the problem and solution. Essentially it contains information about why the website was made and what it contains.
@@ -31,8 +31,9 @@ The worldmap contains:
 
 ### Bar chart
 ![Bar chart](doc/barChartFinished.jpg)
+
 The bar chart:
-- Can be changed with the slider is updated depending on the chosen year
+- Can be changed with the slider it is updated depending on the chosen year
 - Has a tooltip
 
 ### Zoomable sunburst
@@ -50,7 +51,7 @@ The US mental health page contains 2 maps of the United States
 The first map visualizes suicidal thoughts in each state. On hover the percentage and confidence intervals are shown in the box next to the map.
 ![Us map](doc/usmap1.jpg)
 The second map shows major depressive disorder which is a disorder that may lead to suicide. On hover it shows the percentage in the box
-![Us map](doc/usmap1.jpg)
+![Us map](doc/usmap2.jpg)
 
 ## Data Information
 The information tab contains information about the data sets used.
@@ -60,10 +61,10 @@ It also contains additional contact information in the footer.
 ![Footer](doc/footer.jpg)
 
 ### Link to data sets
-[WHO suicide statistics](https://www.kaggle.com/szamil/who-suicide-statistics)
+- [WHO suicide statistics](https://www.kaggle.com/szamil/who-suicide-statistics)
 Transformations: remove outliers and remove countries with no data
-[US suicidal thoughts](https://data.world/samhsa/serious-thoughts-of-suicide)
-[US depression statistics](https://data.world/samhsa/major-depressive-episode)
+- [US suicidal thoughts](https://data.world/samhsa/serious-thoughts-of-suicide)
+- [US depression statistics](https://data.world/samhsa/major-depressive-episode)
 
 
 ### External components used

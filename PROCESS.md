@@ -96,7 +96,7 @@ This is very similar to my linked view assignment. I decided to add them because
 The first map shows suicidal thoughts.
 ![Us map](doc/usmap1.jpg)
 The second map shows major depressive disorder which is a disorder that may lead to suicide.
-![Us map](doc/usmap1.jpg)
+![Us map](doc/usmap2.jpg)
 I also added more information about the new data set on the info page
 ![Info page](doc/infoUSdata.jpg)
 I added a footer to each page
