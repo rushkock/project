@@ -16,7 +16,7 @@ function makeBar (response) {
   // I chose to remove the values that are smaller than 1 because 0.something
   // suicides does not give a lot of information but it is very hard
   // to see because the height of the bar is very small (almost invisible see process report)
-  data = data.sort(function (a, b) { return b.suicides_per_10000 - a.suicides_per_10000; });
+  data = sorting(data);
   data = removeZeros(data);
 
   var color = getColor(data);
@@ -111,8 +111,11 @@ function makeRects (data, rect, color) {
   function heightRect (d) { return yScale.bandwidth(); }
   function makeColor (d) { return color(d.suicides_per_10000); }
 
-  rect.attr('y', makeY)
-      .attr('x', makeX)
+  // rect
+  rect.attr('x', makeX)
+      .transition()
+      .duration(1000)
+      .attr('y', makeY)
       .attr('width', widthRect)
       .attr('height', heightRect)
       .attr('fill', makeColor);

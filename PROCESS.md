@@ -111,3 +111,4 @@ Still have 2 more ideas for optimization namely the sort function in one functio
 I also made sure my github folder structure is good.
 
 # day 16 (30 - 01 - 2018)
+Made the product video. Changed my readme and made some small changes to my code. 

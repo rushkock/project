@@ -49,6 +49,11 @@ function getSelectedCountry (d, pooledData, country, property, property2) {
   return selectedState;
 }
 
+function sorting (data) {
+  var sortedData = data.sort(function (a, b) { return b.suicides_per_10000 - a.suicides_per_10000; });
+  return sortedData;
+}
+
 // color function for barchart and map
 function getColor (data) {
   var min = d3.min(data, function (d) { return d.suicides_per_10000; });
