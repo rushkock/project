@@ -64,7 +64,7 @@ function makeBar (response) {
 // this function updates the data
 function updateBar (data, color) {
   // sort data and remove zeros
-  data = data.sort(function (a, b) { return b.suicides_per_10000-a.suicides_per_10000;} );
+  data = sorting(data);
   data = removeZeros(data);
 
  // update the rects with the right data
@@ -163,8 +163,8 @@ function barMouseOver (data, color) {
                .selectAll('rect')
                .data(data);
 
-  rect.attr('fill', function (d) { return color(d.suicides_per_10000); });
-  rect.on('mouseover', function (d) {
+  rect.attr('fill', function (d) { return color(d.suicides_per_10000); })
+      .on('mouseover', function (d) {
             // bars
             d3.select(this)
               .transition()

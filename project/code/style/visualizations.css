@@ -84,6 +84,11 @@ source: https://bl.ocks.org/vasturiano/12da9071095fbd4df434e60d52d2d58d
   margin-left: 3px;
 }
 
+.noDataLegend {
+  position: absolute;
+  top: 295px;
+  left: 400px;
+}
 
 /*  ////////////////////////////////////////////////////////////////////////
 ////////////////////////////// BAR CHART ///////////////////////////////////

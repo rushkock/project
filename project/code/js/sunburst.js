@@ -194,7 +194,7 @@ function filterSunburst (allData, filteredData, value, year) {
       value = '10';
     }
 
-    data =  allData.sort(function (a, b) { return b.suicides_per_10000 - a.suicides_per_10000;} );
+    data =  sorting(allData);
     var sunburstData = [];
     var newSunburst = [];
     for (var i = 0; i < value; i++) {

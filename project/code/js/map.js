@@ -57,6 +57,7 @@ function makeMap (response) {
 
   mouseOver(response, pooledData, color, tooltip);
   makeLegend('.boxMap', color, min, 60, 15, '#f1eef6', '#023858');
+  noData ();
 }
 
 // this function updates the data of the map, changes the colors and the tooltip
@@ -193,6 +194,27 @@ function subBoxMap (data) {
     d3.select('.subBoxMapPopulation')
       .text(data.population);
    }
+}
+
+// this function adds a black rectangle with the label no data
+function noData () {
+ var svg = d3.select('.boxMap')
+             .append('svg')
+             .attr('width', 60)
+             .attr('height', 50)
+             .attr('class', 'noDataLegend');
+
+    svg.append('rect')
+       .attr('width', 20)
+       .attr('x', 20)
+       .attr('y', 10)
+       .attr('height', 20)
+       .style('fill', 'black');
+
+    svg.append("text")
+       .attr("x", 0)
+       .attr("y", 45)
+       .text("No Data");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
