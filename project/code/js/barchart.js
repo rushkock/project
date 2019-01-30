@@ -114,7 +114,7 @@ function makeRects (data, rect, color) {
   // rect
   rect.attr('x', makeX)
       .transition()
-      .duration(1000)
+      .duration(500)
       .attr('y', makeY)
       .attr('width', widthRect)
       .attr('height', heightRect)
