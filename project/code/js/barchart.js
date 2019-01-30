@@ -15,7 +15,7 @@ function makeBar (response) {
 
   // I chose to remove the values that are smaller than 1 because 0.something
   // suicides does not give a lot of information but it is very hard
-  // to see because the height of the bar is very small (almost invisible)
+  // to see because the height of the bar is very small (almost invisible see process report)
   data = data.sort(function (a, b) { return b.suicides_per_10000 - a.suicides_per_10000; });
   data = removeZeros(data);
 
@@ -37,9 +37,9 @@ function makeBar (response) {
   // write text on x axis
   var suicides = svg.append('text')
                     .attr('y', 20)
-                    .attr('x', (w + margin.left + margin.right) / 2 - 60)
+                    .attr('x', (w + margin.left + margin.right) / 2 - 130)
                     .style('font-size', '20px')
-                    .text('Number of suicides per 10000');
+                    .text('Number of suicides per 10000 inhabitants');
 
   // make a line down the average
   svg.append('line')

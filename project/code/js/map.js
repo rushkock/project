@@ -5,13 +5,13 @@
 // http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 
 // this function makes the world map
-function makeMap(response){
-  // pooled Data is the data set where all values for one year is summed
+function makeMap (response) {
+  // pooledData is the data set where all values for one year is summed
   // (No male/ female or age groups. Just one value for 1998 for each country)
-  // filter data is the data set where all values are still present for one year
+  // filterData is the data set where all values are still present for one year
   // (With male/ female or age groups, 12 values for 1998 for each country )
   var pooledData = processDate(response[1], 1998);
-  var filterData =  processDate(response[2], 1998);
+  var filterData = processDate(response[2], 1998);
 
   var tooltip = d3.select('.worldMap')
                   .append('div')
@@ -32,10 +32,9 @@ function makeMap(response){
 
   var color = getColor(pooledData);
   var min = d3.min(pooledData, function (d) { return d.suicides_per_10000; });
-  var max = d3.max(pooledData, function (d) { return d.suicides_per_10000; });
 
   var year = makeSlider(response, color, tooltip);
-  onclick(response, pooledData, filterData, color, tooltip, year);
+  onClick(response, pooledData, filterData, color, tooltip, year);
 
   var projection = d3.geoMercator()
                      .scale(130)
@@ -56,23 +55,24 @@ function makeMap(response){
      .style('stroke', 'white')
      .style('stroke-width', 0.3);
 
-  mouseover(response, pooledData, color, tooltip);
+  mouseOver(response, pooledData, color, tooltip);
   makeLegend('.boxMap', color, min, 60, 15, '#f1eef6', '#023858');
 }
 
 // this function updates the data of the map, changes the colors and the tooltip
 function update (response, newData, filtered, color, tooltip) {
+  var data = [];
   if (value === 'all') {
-    var data = newData;
+    data = newData;
   } else {
-    var data = filtered;
+    data = filtered;
   }
 
-  mouseover (response, data, color, tooltip);
+  mouseOver(response, data, color, tooltip);
 }
 
 // this function fills the color and adds a tooltip on mouseover
-function mouseover (response, data, color, tooltip) {
+function mouseOver (response, data, color, tooltip) {
   var countries = d3.select('.countries')
                     .selectAll('path')
                     .data(response[0].features)
@@ -93,9 +93,9 @@ function mouseover (response, data, color, tooltip) {
                      .style('stroke-width', 5);
 
               // get the country the user is hovering over
-              var selectedState = getSelectedCountry(d, data, 'country', 'properties', 'name');
-              subBoxMap(selectedState);
-              if (selectedState === '') {
+              var selectedCountry = getSelectedCountry(d, data, 'country', 'properties', 'name');
+              subBoxMap(selectedCountry);
+              if (selectedCountry === '') {
                   tooltip.html('<div id="thumbnail"><span> No Data')
                          .style('left', (d3.event.pageX) + 'px')
                          .style('top', (d3.event.pageY) + 'px');
@@ -105,8 +105,8 @@ function mouseover (response, data, color, tooltip) {
                   .style('visibility', 'visible');
 
                 tooltip.html('<div id="thumbnail"><span> Country: ' +
-                             selectedState.country + '<br> Suicides per 10000: ' +
-                             Math.round(selectedState.suicides_per_10000))
+                             selectedCountry.country + '<br> Suicides per 10000: ' +
+                             Math.round(selectedCountry.suicides_per_10000))
                        .style('left', (d3.event.pageX) + 'px')
                        .style('top', (d3.event.pageY)  + 'px');
                 }
@@ -159,10 +159,9 @@ function makeSlider (data, color, tooltip) {
                        var ageFiltered = filter(data, newData, filteredData, color, tooltip);
 
                        filterSunburst(newData, filteredData, sunburstValue, year);
-
                        update(data, newData, ageFiltered, color, tooltip);
                        updateBar(newData, color);
-                       onclick(data, newData, filteredData, color, tooltip);
+                       onClick(data, newData, filteredData, color, tooltip);
                       });
 
   var gTime = d3.select('div#slider-time')
@@ -182,7 +181,8 @@ function makeSlider (data, color, tooltip) {
 function subBoxMap (data) {
     var box = d3.select('.subBoxMap');
     if (data != '') {
-    d3.select('.subBoxMapCountry').select('h1')
+    d3.select('.subBoxMapCountry')
+      .select('h1')
       .text(data.country);
     d3.select('.subBoxMapSuicidesPer10000')
       .text(Math.round(data.suicides_per_10000));
@@ -207,7 +207,7 @@ var id = '';
 
 // when one of the dropdowns are clicked this function determines
 // what should happen
-function onclick (response, allData, filteredData, color, tooltip, year) {
+function onClick (response, allData, filteredData, color, tooltip, year) {
  d3.selectAll('.dropdown-item')
    .on('click', function(){
       // check which dropdown was chosen, get the right value,

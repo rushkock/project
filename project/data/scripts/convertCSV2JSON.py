@@ -10,7 +10,7 @@ import pandas as pd
 
 def main():
     # read csv into datframe
-    df = pd.read_csv("csv/who_suicide_statistics.csv")
+    df = pd.read_csv("../csv/who_suicide_statistics.csv")
 
     # remove rows with empty cells
     df = df.dropna(axis=0)

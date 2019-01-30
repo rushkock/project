@@ -22,7 +22,7 @@ function makeSunburst (data) {
 
   // scaling function for y
   var y = d3.scaleSqrt()
-            .range([maxRadius*.1, maxRadius]);
+            .range([maxRadius*0.1, maxRadius]);
 
   // color source: http://colorbrewer2.org/#type=diverging&scheme=RdYlBu&n=10
   var colorSunburst = d3.scaleOrdinal(['#4575b4', '#313695', '#a50026',

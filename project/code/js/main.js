@@ -37,10 +37,11 @@ function processDate (data, year) {
 // this functions gets the states that the mouse is hovering over
 function getSelectedCountry (d, pooledData, country, property, property2) {
   var selectedState = '';
+  var element = '';
   if (country === 'country') {
-    var element = d[property][property2];
+    element = d[property][property2];
   } else {
-    var element = d[property];
+    element = d[property];
   }
 
   // note intentional use of == and not ===
@@ -52,11 +53,11 @@ function getSelectedCountry (d, pooledData, country, property, property2) {
 function getColor (data) {
   var min = d3.min(data, function (d) { return d.suicides_per_10000; });
   var max = d3.max(data, function (d) { return d.suicides_per_10000; });
-  var seven = (max - min) / 7;
+  var seventh = (max - min) / 7;
 
   var color = d3.scaleLinear()
-                .domain([min, min + seven, min + seven * 2, min + seven * 3,
-                         min + seven * 4, min + seven * 5, min + seven * 6, max])
+                .domain([min, min + seventh, min + seventh * 2, min + seventh * 3,
+                         min + seventh * 4, min + seventh * 5, min + seventh * 6, max])
                 .range(['#d0d1e6', '#a6bddb', '#74a9cf', '#3690c0', '#0570b0',
                         '#045a8d', '#023858']);
   return color;

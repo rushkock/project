@@ -48,11 +48,11 @@ function makeUSMap (select, legendPos, subBox, range, response, states, start, s
 
   var max = d3.max(states, function (d) { return d.percentage;} );
   var min = d3.min(states, function (d) { return d.percentage;} );
-  var five = (max - min) / 5;
+  var fifth = (max - min) / 5;
 
   //http://colorbrewer2.org/#type=sequential&scheme=PuBu&n=5
   var colorUS = d3.scaleLinear()
-                  .domain([min, min + five, min + five * 2, min + five * 3, max])
+                  .domain([min, min + fifth, min + fifth * 2, min + fifth * 3, max])
                   .range(range);
 
   var map = svg.append('g')
@@ -100,7 +100,8 @@ function makeUSMap (select, legendPos, subBox, range, response, states, start, s
 // this function writes the text in the subBox (small box with borders on the right of the page)
 function subBoxMap (data, value) {
     if (data != '') {
-    d3.select('.subBoxMapCountry' + value).select('h1')
+    d3.select('.subBoxMapCountry' + value)
+      .select('h1')
       .text(data.state);
     d3.select('.subBoxMapSuicidesPercentage' + value)
       .text(data.percentage + ' %');

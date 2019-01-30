@@ -15,7 +15,7 @@ def main():
                      "upper_CI"]
 
     # read csv into datframe
-    df = pd.read_csv("csv/depression.csv", usecols=columns)
+    df = pd.read_csv("../csv/depression.csv", usecols=columns)
 
     df.columns = names_columns
 
@@ -27,7 +27,7 @@ def main():
 
     df["upper_CI"] = df["upper_CI"].map(lambda x: x.rstrip("%"))
     df["upper_CI"] = pd.to_numeric(df["upper_CI"])
-    
+
     # set to json file
     df.to_json(path_or_buf="json/depression.json", orient="records")
 

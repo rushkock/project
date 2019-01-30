@@ -33,27 +33,34 @@ html {
   position: absolute;
   top: 810px;
   left: 50px;
+  width: 400px;
 }
 
 .card2 {
   position: absolute;
   top: 810px;
   left: 550px;
+  width: 400px;
 }
 .card3 {
   position: absolute;
   top: 810px;
   left: 1050px;
+  width: 400px;
 }
 
 p, .card-title {
   text-align: center
 }
 
-#button {
-  text-align: center;
-}
+ .youtubeVideo {
+   width: 300px;
+   height: 215px;
+ }
 
+ .card-img-top {
+   width: 100%;
+ }
 
 /*  ////////////////////////////////////////////////////////////////////////
 //////////////////////////////  FOOTER  ////////////////////////////////////
@@ -64,6 +71,6 @@ p, .card-title {
   position: absolute;
   background-color: black;
   color: white;
-  top: 1450px;
+  top: 1500px;
   width: 100%;
 }
