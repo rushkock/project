@@ -94,5 +94,7 @@ In the barchart I decided to remove values with 0 suicides. These countries were
 ![barchart zero's](doc/barchartWithZero's.jpg)
 
 # Future work
-If I had more time. I would add checkboxes so that the user can choose 2 filters at the same time (e.g. How many males between the ages of 75+ committed suicide in Russia in 2010). I would also have an option to filter the barchart as well. As I mentioned I would add a legend for the barchart or move the placement of the map legend so that it is also visible near the barchart.
+I did not make any big deviations from my design document. I did add an extra tab that was not mentioned in the design document (The US mental health tab). However, this is because I had extra time. The solution I provided (visualizing mental health with the maps, bar chart and sunburst) for the problem is a very specific solution. This is because I only used 3 data sets. However, mental health is very broad and there are many different data gathered on many disorders. Given more time I would like to visualize more datasets (in the same way) to provide a fuller picture on mental health.
+
+If I had more time I would also add checkboxes so that the user can choose 2 filters at the same time (e.g. How many males between the ages of 75+ committed suicide in Russia in 2010). I would also have an option to filter the barchart as well. As I mentioned I would add a legend for the barchart or move the placement of the map legend so that it is also visible near the barchart.
 I would choose another colorscheme for the map.
