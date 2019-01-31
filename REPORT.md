@@ -88,7 +88,7 @@ This is because a country with a big population will likely have a lot more suic
 
 The sunburst is not very clear with a huge dataset. This is because the labels do not fit on the small boxes.
 I decided to add a dropdown to let the user filter the sunburst. When only 10 countries are shown the sunburst is a lot clearer.
-![filtered sunburst](doc/filteredSunburst.jpg)
+![filtered sunburst](doc/filter.jpg)
 
 In the barchart I decided to remove values with 0 suicides. These countries were so small that they were almost invisible. I also did not feel as if they give a lot of information.
 ![barchart zero's](doc/barchartWithZero's.jpg)
